@@ -1,0 +1,118 @@
+/* styles/globals.css */
+@import url('@fortawesome/fontawesome-free/css/all.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core surfaces */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Brand primary + accent (LearnifyTube) */
+    --brand-blue: 217.2 91.2% 59.8%; /* #3B82F6 */
+    --brand-green: 160 84% 39.4%;    /* #10B981 */
+
+    --primary: var(--brand-blue);
+    --primary-foreground: 210 40% 98%;
+    --accent: var(--brand-green);
+    --accent-foreground: 210 40% 98%;
+
+    /* Secondary / supportive */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Semantic */
+    --success: var(--brand-green); /* Success aligns with accent green */
+    --warning: 35.6 90% 48%; /* Approx for #F59E0B */
+    --error: 0 84.2% 60.2%; /* #EF4444 */
+    --destructive: var(--error);
+    --destructive-foreground: 210 40% 98%;
+
+    /* UI chrome */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: var(--brand-blue);
+
+    /* Radius scale root (base == medium 8px from guideline) */
+    --radius: 0.5rem; /* 8px */
+    --radius-sm: 0.25rem; /* 4px */
+    --radius-lg: 0.75rem; /* 12px */
+    --radius-xl: 1rem; /* 16px */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Brand stays consistent in dark mode */
+    --primary: var(--brand-blue);
+    --primary-foreground: 210 40% 98%;
+    --accent: var(--brand-green);
+    --accent-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --success: var(--brand-green);
+    --warning: 35.6 90% 48%;
+    --error: 0 84.2% 60.2%;
+    --destructive: var(--error);
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: var(--brand-blue);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .highlighted-sentence {
+    background-color: #FFFFA0;
+  }
+  .dark .highlighted-sentence {
+    background-color: rgba(255, 255, 0, 0.2);
+  }
+  /* Brand gradient utility */
+  .bg-brand-gradient {
+    background-image: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+  }
+}

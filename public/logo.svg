@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">LearnifyTube Logo</title>
+  <desc id="desc">Stylized open book with a play button representing learning via video content.</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+    <clipPath id="bookClip">
+      <rect x="16" y="32" width="224" height="192" rx="16" ry="16" />
+    </clipPath>
+  </defs>
+  <!-- Book background -->
+  <rect x="16" y="32" width="224" height="192" rx="24" ry="24" fill="url(#grad)" />
+  <!-- Pages (subtle inner highlight) -->
+  <g clip-path="url(#bookClip)">
+    <path d="M32 48h96v160H32z" fill="rgba(255,255,255,0.12)" />
+    <path d="M128 48h96v160h-96z" fill="rgba(0,0,0,0.08)" />
+  </g>
+  <!-- Play button -->
+  <circle cx="128" cy="128" r="52" fill="rgba(0,0,0,0.15)" />
+  <path d="M114 100l52 28-52 28V100z" fill="#ffffff" />
+  <!-- Focus ring for accessibility (hidden by default) -->
+  <style>
+    svg:focus { outline: 4px solid #3B82F6; outline-offset: 4px; }
+  </style>
+</svg>
