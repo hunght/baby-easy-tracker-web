@@ -27,7 +27,7 @@ import { GitHubButton } from '@/components/github-button';
 import { EmailSubscriptionForm } from '@/components/email-subscription-form';
 
 const description =
-  'BabyEase: Free open-source baby tracking app. Log feeds, sleep, diapers, and more. Track your baby\'s daily activities with our privacy-focused mobile app for iOS and Android.';
+  "BabyEase: Free open-source baby tracking app. Log feeds, sleep, diapers, and more. Track your baby's daily activities with our privacy-focused mobile app for iOS and Android.";
 
 export const metadata: Metadata = {
   title: 'BabyEase: Free Open-Source Baby Tracking App',
@@ -140,9 +140,11 @@ export default function Home() {
                     itemProp="headline"
                   >
                     <span className="text-slate-700 dark:text-slate-200">
-                      Track Your Baby's{' '}
+                      Track Your Baby&apos;s{' '}
                     </span>
-                    <span className="bg-brand-gradient bg-clip-text text-transparent">Daily Journey</span>
+                    <span className="bg-brand-gradient bg-clip-text text-transparent">
+                      Daily Journey
+                    </span>
                     <br />
                     <span className="text-slate-700 dark:text-slate-200">
                       With Ease
@@ -152,9 +154,10 @@ export default function Home() {
                     className="mb-8 text-lg text-muted-foreground"
                     itemProp="description"
                   >
-                    Simplify parenting with BabyEase - the lightweight baby tracking app.
-                    Log feeds, sleep, diapers, and milestones. View timelines and charts
-                    to understand your baby's patterns. No ads, no tracking, just care.
+                    Simplify parenting with BabyEase - the lightweight baby
+                    tracking app. Log feeds, sleep, diapers, and milestones.
+                    View timelines and charts to understand your baby&apos;s
+                    patterns. No ads, no tracking, just care.
                   </p>
                   <div className="mb-8">
                     <DownloadButton />
@@ -226,10 +229,13 @@ export default function Home() {
               {/* Activity Tracking Feature */}
               <div className="mb-24 flex flex-col items-center md:flex-row md:items-start md:justify-between">
                 <div className="mb-8 flex flex-col space-y-4 md:mb-0 md:w-2/5">
-                  <h3 className="text-2xl font-bold">Smart Activity Tracking</h3>
+                  <h3 className="text-2xl font-bold">
+                    Smart Activity Tracking
+                  </h3>
                   <p className="text-slate-300">
-                    Log all your baby's activities with a single tap. BabyEase helps you
-                    track feeds, sleep, diapers, and more with an intuitive timeline view.
+                    Log all your baby&apos;s activities with a single tap.
+                    BabyEase helps you track feeds, sleep, diapers, and more
+                    with an intuitive timeline view.
                   </p>
                   <ul className="space-y-2 text-slate-300">
                     <li className="flex items-start">
@@ -316,9 +322,9 @@ export default function Home() {
                 <div className="mb-8 flex flex-col space-y-4 md:mb-0 md:w-2/5">
                   <h3 className="text-2xl font-bold">Insights & Charts</h3>
                   <p className="text-slate-300">
-                    Visualize your baby's patterns and rhythms. BabyEase provides
-                    beautiful charts and insights to help you understand your baby's
-                    needs better.
+                    Visualize your baby&apos;s patterns and rhythms. BabyEase
+                    provides beautiful charts and insights to help you
+                    understand your baby&apos;s needs better.
                   </p>
                   <ul className="space-y-2 text-slate-300">
                     <li className="flex items-start">
@@ -389,7 +395,8 @@ export default function Home() {
                 </h2>
                 <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
                   BabyEase is proudly open source. We believe in transparency,
-                  privacy, and community-driven development. Your data stays on your device.
+                  privacy, and community-driven development. Your data stays on
+                  your device.
                 </p>
               </div>
 
@@ -633,7 +640,8 @@ export default function Home() {
                 Ready to Simplify Baby Care?
               </h2>
               <p className="mb-8 text-lg">
-                Join parents who are tracking their baby's journey more effectively with BabyEase.
+                Join parents who are tracking their baby&apos;s journey more
+                effectively with BabyEase.
               </p>
               <DownloadNowButton size="lg">
                 Download BabyEase Now
