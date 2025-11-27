@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: 'LearnifyTube',
-  url: 'https://learnifytube.com',
+  name: 'BabyEase',
+  url: 'https://babyease.app',
   description:
-    'The smartest learning-first YouTube downloader',
+    'Lightweight baby tracking app to log events, view timelines, and explore charts for your little one',
   author: 'Hung Hoang',
   links: {
     twitter: 'https://twitter.com/buddy_beep_com',
-    github: 'https://github.com/hunght/learnifytube-web',
+    github: 'https://github.com/hunght/baby-easy-tracker-web',
     discord: 'https://discord.gg/BzQZpdZuM7',
   },
 };

@@ -27,45 +27,45 @@ import { GitHubButton } from '@/components/github-button';
 import { EmailSubscriptionForm } from '@/components/email-subscription-form';
 
 const description =
-  'LearnifyTube: Open-source YouTube downloader for learning. Download videos, playlists, and channels with our free, privacy-focused desktop app for Windows, macOS, and Linux.';
+  'BabyEase: Free open-source baby tracking app. Log feeds, sleep, diapers, and more. Track your baby\'s daily activities with our privacy-focused mobile app for iOS and Android.';
 
 export const metadata: Metadata = {
-  title: 'LearnifyTube: Free Open-Source YouTube Downloader for Learners',
+  title: 'BabyEase: Free Open-Source Baby Tracking App',
   description: description,
   keywords:
-    'youtube downloader, video downloader, open-source, desktop app, learning, education, offline viewing, free youtube downloader',
+    'baby tracker, baby tracking app, feeding tracker, sleep tracker, diaper log, open-source, mobile app, parenting, newborn care, baby care app',
   viewport: 'width=device-width, initial-scale=1',
   openGraph: {
-    title: 'LearnifyTube - Free Open-Source YouTube Downloader',
+    title: 'BabyEase - Free Open-Source Baby Tracking App',
     description: description,
     type: 'website',
-    url: 'https://learnifytube.com',
+    url: 'https://babyease.app',
     images: [
       {
-        url: 'https://learnifytube.com/logo-300.png',
+        url: 'https://babyease.app/logo-300.png',
         width: 300,
         height: 300,
-        alt: 'LearnifyTube Logo',
+        alt: 'BabyEase Logo',
       },
     ],
-    siteName: 'LearnifyTube',
+    siteName: 'BabyEase',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LearnifyTube - Free Open-Source YouTube Downloader',
+    title: 'BabyEase - Free Open-Source Baby Tracking App',
     description: description,
     images: [
       {
-        url: 'https://learnifytube.com/logo-300.png',
-        alt: 'LearnifyTube Logo',
+        url: 'https://babyease.app/logo-300.png',
+        alt: 'BabyEase Logo',
       },
     ],
     creator: '@buddy_beep_com',
     site: '@buddy_beep_com',
   },
   alternates: {
-    canonical: 'https://learnifytube.com',
+    canonical: 'https://babyease.app',
   },
   robots: {
     index: true,
@@ -88,26 +88,12 @@ export default function Home() {
   return (
     <>
       {/* Structured Data for SEO */}
-      <JsonLd<VideoObject>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'VideoObject',
-          name: 'LearnifyTube Demo Video',
-          description:
-            'Watch how LearnifyTube helps you download videos for offline learning',
-          thumbnailUrl: 'https://learnifytube.com/video-thumbnail.jpg',
-          uploadDate: '2023-04-15T08:00:00+08:00',
-          duration: 'PT1M20S',
-          contentUrl: 'https://learnifytube.com/demo-video.mp4',
-          embedUrl: 'https://www.youtube.com/embed/your-video-id',
-        }}
-      />
       <JsonLd<WebSite>
         item={{
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          name: 'LearnifyTube',
-          url: 'https://learnifytube.com',
+          name: 'BabyEase',
+          url: 'https://babyease.app',
 
           description: description,
           inLanguage: 'en-US',
@@ -122,9 +108,9 @@ export default function Home() {
         item={{
           '@context': 'https://schema.org',
           '@type': 'SoftwareApplication',
-          name: 'LearnifyTube',
-          applicationCategory: 'MultimediaApplication',
-          operatingSystem: 'Windows, macOS, Linux',
+          name: 'BabyEase',
+          applicationCategory: 'LifestyleApplication',
+          operatingSystem: 'iOS, Android',
           offers: {
             '@type': 'Offer',
             price: '0',
@@ -132,10 +118,10 @@ export default function Home() {
           },
           aggregateRating: {
             '@type': 'AggregateRating',
-            ratingValue: '4.8',
-            ratingCount: '25',
+            ratingValue: '4.9',
+            ratingCount: '15',
           },
-          downloadUrl: 'https://learnifytube.com/download',
+          downloadUrl: 'https://babyease.app/download',
         }}
       />
       <div className="min-h-dvh relative flex flex-col bg-background">
@@ -154,21 +140,21 @@ export default function Home() {
                     itemProp="headline"
                   >
                     <span className="text-slate-700 dark:text-slate-200">
-                      The{' '}
+                      Track Your Baby's{' '}
                     </span>
-                    <span className="bg-brand-gradient bg-clip-text text-transparent">Smartest Way</span>
+                    <span className="bg-brand-gradient bg-clip-text text-transparent">Daily Journey</span>
                     <br />
                     <span className="text-slate-700 dark:text-slate-200">
-                      To Learn Offline
+                      With Ease
                     </span>
                   </h1>
                   <p
                     className="mb-8 text-lg text-muted-foreground"
                     itemProp="description"
                   >
-                    Level up your learning with the smartest YouTube downloader.
-                    Download videos, playlists, and channels for offline viewing.
-                    No ads, no tracking, just learning.
+                    Simplify parenting with BabyEase - the lightweight baby tracking app.
+                    Log feeds, sleep, diapers, and milestones. View timelines and charts
+                    to understand your baby's patterns. No ads, no tracking, just care.
                   </p>
                   <div className="mb-8">
                     <DownloadButton />
@@ -232,19 +218,18 @@ export default function Home() {
               <div className="mb-12 text-center">
                 <h2 className="text-4xl font-bold">
                   <span className="bg-brand-gradient bg-clip-text text-transparent">
-                    Everything You Need for Offline Learning
+                    Everything You Need for Baby Care Tracking
                   </span>
                 </h2>
               </div>
 
-              {/* Smart Downloads Feature */}
+              {/* Activity Tracking Feature */}
               <div className="mb-24 flex flex-col items-center md:flex-row md:items-start md:justify-between">
                 <div className="mb-8 flex flex-col space-y-4 md:mb-0 md:w-2/5">
-                  <h3 className="text-2xl font-bold">Smart Downloads</h3>
+                  <h3 className="text-2xl font-bold">Smart Activity Tracking</h3>
                   <p className="text-slate-300">
-                    Download entire playlists and channels with a single click.
-                    LearnifyTube organizes your content intelligently for the
-                    best offline learning experience.
+                    Log all your baby's activities with a single tap. BabyEase helps you
+                    track feeds, sleep, diapers, and more with an intuitive timeline view.
                   </p>
                   <ul className="space-y-2 text-slate-300">
                     <li className="flex items-start">
@@ -262,7 +247,7 @@ export default function Home() {
                       >
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
-                      <span>Playlist & Channel downloads</span>
+                      <span>Feed tracking (breast & bottle)</span>
                     </li>
                     <li className="flex items-start">
                       <svg
@@ -279,7 +264,7 @@ export default function Home() {
                       >
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
-                      <span>Auto-generated subtitles</span>
+                      <span>Sleep duration & patterns</span>
                     </li>
                     <li className="flex items-start">
                       <svg
@@ -296,7 +281,7 @@ export default function Home() {
                       >
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
-                      <span>High-quality video & audio</span>
+                      <span>Diaper changes & notes</span>
                     </li>
                   </ul>
                 </div>
@@ -304,7 +289,7 @@ export default function Home() {
                   <div className="transform overflow-hidden rounded-lg border-4 border-slate-700 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
                     <Image
                       src="/screenshots/dashboard.png"
-                      alt="Smart downloads interface in LearnifyTube"
+                      alt="Activity tracking interface in BabyEase"
                       width={800}
                       height={500}
                       className="w-full"
@@ -314,13 +299,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Learning Focused Feature */}
+              {/* Charts & Insights Feature */}
               <div className="mb-24 flex flex-col-reverse items-center md:flex-row md:items-start md:justify-between">
                 <div className="md:w-3/5 lg:w-1/2">
                   <div className="transform overflow-hidden rounded-lg border-4 border-slate-700 shadow-xl transition-all hover:scale-105 hover:shadow-2xl">
                     <Image
                       src="/screenshots/player-playing.png"
-                      alt="Learning focused interface in LearnifyTube"
+                      alt="Charts and insights in BabyEase"
                       width={800}
                       height={500}
                       className="w-full"
@@ -329,11 +314,11 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="mb-8 flex flex-col space-y-4 md:mb-0 md:w-2/5">
-                  <h3 className="text-2xl font-bold">Learning Focused</h3>
+                  <h3 className="text-2xl font-bold">Insights & Charts</h3>
                   <p className="text-slate-300">
-                    Designed for learners, not just downloaders. Organize your
-                    videos by topic, track your progress, and take notes directly
-                    within the app.
+                    Visualize your baby's patterns and rhythms. BabyEase provides
+                    beautiful charts and insights to help you understand your baby's
+                    needs better.
                   </p>
                   <ul className="space-y-2 text-slate-300">
                     <li className="flex items-start">
@@ -351,7 +336,7 @@ export default function Home() {
                       >
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
-                      <span>Distraction-free player</span>
+                      <span>Sleep pattern analysis</span>
                     </li>
                     <li className="flex items-start">
                       <svg
@@ -368,7 +353,7 @@ export default function Home() {
                       >
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
-                      <span>Note-taking integration</span>
+                      <span>Feeding trends</span>
                     </li>
                     <li className="flex items-start">
                       <svg
@@ -385,7 +370,7 @@ export default function Home() {
                       >
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
-                      <span>Progress tracking</span>
+                      <span>Growth tracking</span>
                     </li>
                   </ul>
                 </div>
@@ -400,11 +385,11 @@ export default function Home() {
             <div className="container mx-auto px-4">
               <div className="mb-10 text-center">
                 <h2 className="mb-4 text-3xl font-bold">
-                  Open Source & Community-Driven
+                  Open Source & Privacy-Focused
                 </h2>
                 <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
-                  LearnifyTube is proudly open source. We believe in transparency,
-                  collaboration, and community-driven development.
+                  BabyEase is proudly open source. We believe in transparency,
+                  privacy, and community-driven development. Your data stays on your device.
                 </p>
               </div>
 
@@ -430,13 +415,13 @@ export default function Home() {
                   <CardHeader className="p-0">
                     <CardTitle className="mb-2 text-xl">Contribute</CardTitle>
                     <CardDescription>
-                      Help us improve LearnifyTube by contributing code, reporting
+                      Help us improve BabyEase by contributing code, reporting
                       bugs, or suggesting new features.
                     </CardDescription>
                   </CardHeader>
                   <div className="mt-auto pt-4">
                     <a
-                      href="https://github.com/hunght/LearnifyTube"
+                      href="https://github.com/hunght/BabyEase"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-sm font-medium text-primary hover:underline"
@@ -487,13 +472,13 @@ export default function Home() {
                       Documentation
                     </CardTitle>
                     <CardDescription>
-                      Explore our documentation to learn about LearnifyTube&apos;s
+                      Explore our documentation to learn about BabyEase&apos;s
                       features, architecture, and development process.
                     </CardDescription>
                   </CardHeader>
                   <div className="mt-auto pt-4">
                     <a
-                      href="https://github.com/hunght/LearnifyTube#readme"
+                      href="https://github.com/hunght/BabyEase#readme"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-sm font-medium text-primary hover:underline"
@@ -541,7 +526,7 @@ export default function Home() {
                   <CardHeader className="p-0">
                     <CardTitle className="mb-2 text-xl">Community</CardTitle>
                     <CardDescription>
-                      Join our community of developers and users to discuss
+                      Join our community of parents and developers to discuss
                       ideas, share feedback, and get support.
                     </CardDescription>
                   </CardHeader>
@@ -576,7 +561,7 @@ export default function Home() {
               <div className="mt-12 text-center">
                 <div className="mb-4 inline-flex items-center justify-center space-x-2">
                   <GitHubButton
-                    href="https://github.com/hunght/LearnifyTube/stargazers"
+                    href="https://github.com/hunght/BabyEase/stargazers"
                     type="star"
                     className="inline-flex items-center rounded-md bg-slate-100 px-3 py-1 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
                   >
@@ -584,7 +569,7 @@ export default function Home() {
                   </GitHubButton>
 
                   <GitHubButton
-                    href="https://github.com/hunght/LearnifyTube/fork"
+                    href="https://github.com/hunght/BabyEase/fork"
                     type="fork"
                     className="inline-flex items-center rounded-md bg-slate-100 px-3 py-1 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
                   >
@@ -592,7 +577,7 @@ export default function Home() {
                   </GitHubButton>
 
                   <GitHubButton
-                    href="https://github.com/hunght/LearnifyTube/issues"
+                    href="https://github.com/hunght/BabyEase/issues"
                     type="issue"
                     className="inline-flex items-center rounded-md bg-slate-100 px-3 py-1 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700"
                   >
@@ -601,9 +586,9 @@ export default function Home() {
                 </div>
 
                 <p className="mt-2 text-sm text-muted-foreground">
-                  LearnifyTube is licensed under the{' '}
+                  BabyEase is licensed under the{' '}
                   <a
-                    href="https://github.com/hunght/LearnifyTube/blob/main/LICENSE"
+                    href="https://github.com/hunght/BabyEase/blob/main/LICENSE"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline"
@@ -645,14 +630,13 @@ export default function Home() {
           >
             <div className="container mx-auto px-4 text-center">
               <h2 className="mb-6 text-3xl font-bold" id="cta-heading">
-                Ready to Boost Your Learning?
+                Ready to Simplify Baby Care?
               </h2>
               <p className="mb-8 text-lg">
-                Join the growing community of learners who are mastering new skills
-                more effectively with LearnifyTube.
+                Join parents who are tracking their baby's journey more effectively with BabyEase.
               </p>
               <DownloadNowButton size="lg">
-                Download LearnifyTube Now
+                Download BabyEase Now
               </DownloadNowButton>
 
               {/* Email Subscription Component */}
@@ -666,7 +650,7 @@ export default function Home() {
                   </div>
                   <p className="mt-2 text-xs text-gray-500">
                     We&apos;ll notify you about new features, updates, and
-                    mobile app releases.
+                    parenting tips.
                   </p>
                 </div>
               </div>

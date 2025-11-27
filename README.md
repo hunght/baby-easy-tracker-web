@@ -1,10 +1,10 @@
-# LearnifyTube Web
+# BabyEase Web
 
-This is the web repository for LearnifyTube.
+This is the web repository for BabyEase.
 
 ## Introduction
 
-LearnifyTube Web is the landing page and blog for LearnifyTube, the smartest learning-first YouTube downloader.
+BabyEase Web is the landing page and blog for BabyEase, a lightweight baby tracking app that helps caregivers record and visualize a baby's daily activities.
 
 ## Features
 
@@ -16,9 +16,9 @@ LearnifyTube Web is the landing page and blog for LearnifyTube, the smartest lea
 
 ## Getting Started
 
-To get started with LearnifyTube Web, follow these steps:
+To get started with BabyEase Web, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/hunght/learnifytube-web.git`
+1. Clone the repository: `git clone https://github.com/hunght/baby-easy-tracker-web.git`
 2. Install the dependencies: `npm install`
 3. Start the development server: `npm run dev`
 4. Open your browser and navigate to `http://localhost:3000`
