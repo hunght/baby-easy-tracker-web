@@ -18,10 +18,11 @@ export default function PrivacyPage() {
       <div className="space-y-8">
         <section>
           <p className="text-base">
-            Easy Baby Tracker ("we", "our", or "us") operates the Easy Baby
-            Tracker mobile application (the "Service"). This Privacy Policy
-            informs you about our policies regarding the collection, use, and
-            disclosure of personal data when you use our Service.
+            Easy Baby Tracker (&quot;we&quot;, &quot;our&quot;, or
+            &quot;us&quot;) operates the Easy Baby Tracker mobile application
+            (the &quot;Service&quot;). This Privacy Policy informs you about our
+            policies regarding the collection, use, and disclosure of personal
+            data when you use our Service.
           </p>
         </section>
 
@@ -58,8 +59,8 @@ export default function PrivacyPage() {
             Camera and Photo Library Access
           </h2>
           <p>
-            The app may request access to your device's camera and photo library
-            to allow you to:
+            The app may request access to your device&apos;s camera and photo
+            library to allow you to:
           </p>
           <ul className="ml-6 list-disc space-y-2">
             <li>Take photos of your baby for their profile</li>
@@ -86,7 +87,8 @@ export default function PrivacyPage() {
           <h2 className="mb-4 text-2xl font-semibold">Data Security</h2>
           <p>
             Since all data is stored locally on your device, the security of
-            your data depends on your device's security measures. We recommend:
+            your data depends on your device&apos;s security measures. We
+            recommend:
           </p>
           <ul className="ml-6 list-disc space-y-2">
             <li>Keeping your device password-protected</li>
@@ -105,7 +107,9 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="mb-4 text-2xl font-semibold">Children's Privacy</h2>
+          <h2 className="mb-4 text-2xl font-semibold">
+            Children&apos;s Privacy
+          </h2>
           <p>
             Our Service is designed for tracking baby care information. We do
             not knowingly collect any personal information from children. All
@@ -118,8 +122,8 @@ export default function PrivacyPage() {
           <h2 className="mb-4 text-2xl font-semibold">Data Deletion</h2>
           <p>
             You can delete any data stored by the app at any time through the
-            app's interface. Uninstalling the app will permanently delete all
-            locally stored data from your device.
+            app&apos;s interface. Uninstalling the app will permanently delete
+            all locally stored data from your device.
           </p>
         </section>
 
@@ -129,9 +133,9 @@ export default function PrivacyPage() {
           </h2>
           <p>
             We may update our Privacy Policy from time to time. We will notify
-            you of any changes by updating the "Last updated" date at the top of
-            this Privacy Policy. You are advised to review this Privacy Policy
-            periodically for any changes.
+            you of any changes by updating the &quot;Last updated&quot; date at
+            the top of this Privacy Policy. You are advised to review this
+            Privacy Policy periodically for any changes.
           </p>
         </section>
 
