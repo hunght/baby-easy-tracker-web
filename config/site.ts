@@ -6,7 +6,7 @@ export const siteConfig = {
   author: 'Hung Hoang',
   links: {
     twitter: 'https://x.com/hugboringdev',
-    github: 'https://github.com/hunght/baby-easy-tracker-web',
+    github: 'https://github.com/hunght/easy-baby-tracker',
   },
 };
 
