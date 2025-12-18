@@ -1,39 +1,35 @@
-const DEFAULT_RELEASE_URL =
-  'https://github.com/hunght/LearnifyTube/releases/latest';
+import { appLinks } from '@/config/app-links';
 
 export const handleDownload = () => {
   if (typeof window === 'undefined') {
     return;
   }
 
-  window.location.href = DEFAULT_RELEASE_URL;
+  // Detect mobile platform and redirect to appropriate store
+  const userAgent = window.navigator.userAgent;
+  
+  if (/iPhone|iPad|iPod/i.test(userAgent)) {
+    window.location.href = appLinks.ios;
+  } else if (/Android/i.test(userAgent)) {
+    window.location.href = appLinks.android;
+  } else {
+    // Desktop users - show download page with both options
+    window.location.href = '/download';
+  }
 };
 
-export const getPlatformDownloadUrl = (customAppLinks: {
-  windows: string;
-  macos: string;
-  linux: string;
-  releases: string;
-  macosIntel: string;
-  linuxRpm: string;
-}): string => {
+export const getPlatformDownloadUrl = (): string => {
   if (typeof window === 'undefined') {
-    return customAppLinks.releases;
+    return '/download';
   }
 
   const userAgent = window.navigator.userAgent;
 
-  if (userAgent.indexOf('Windows') !== -1) {
-    return customAppLinks.windows;
-  } else if (userAgent.indexOf('Mac') !== -1) {
-    if (userAgent.indexOf('ARM') !== -1) {
-      return customAppLinks.macos;
-    } else {
-      return customAppLinks.macosIntel || customAppLinks.macos;
-    }
-  } else if (userAgent.indexOf('Linux') !== -1) {
-    return customAppLinks.linux;
+  if (/iPhone|iPad|iPod/i.test(userAgent)) {
+    return appLinks.ios;
+  } else if (/Android/i.test(userAgent)) {
+    return appLinks.android;
   }
 
-  return customAppLinks.releases;
+  return '/download';
 };

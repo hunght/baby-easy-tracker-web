@@ -8,79 +8,111 @@
 @layer base {
   :root {
     /* Core surfaces */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 20% 98%;
+    /* #F5F7FA - matches app */
+    --foreground: 210 11% 7%;
+    /* #11181C - matches app */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 11% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 11% 7%;
 
-    /* Brand primary + accent (LearnifyTube) */
-    --brand-blue: 217.2 91.2% 59.8%; /* #3B82F6 */
-    --brand-green: 160 84% 39.4%;    /* #10B981 */
+    /* BabyEase Brand Colors - aligned with app theme.ts */
+    --brand-primary: 230 100% 68%;
+    /* #5B7FFF - BabyEase primary */
+    --brand-secondary: 32 100% 64%;
+    /* #FFB347 - warm orange accent */
+    --brand-accent: 335 100% 77%;
+    /* #FF8AB8 - playful pink */
+    --brand-mint: 162 63% 69%;
+    /* #7FE3CC - mint green */
+    --brand-lavender: 250 60% 88%;
+    /* #C7B9FF - lavender */
+    --brand-warning: 14 100% 67%;
+    /* #FF7A59 - warning/destructive */
 
-    --primary: var(--brand-blue);
-    --primary-foreground: 210 40% 98%;
-    --accent: var(--brand-green);
-    --accent-foreground: 210 40% 98%;
+    --primary: var(--brand-primary);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--brand-secondary);
+    --secondary-foreground: 210 11% 7%;
+    --accent: var(--brand-accent);
+    --accent-foreground: 0 0% 100%;
 
-    /* Secondary / supportive */
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Supportive */
+    --muted: 250 60% 88%;
+    /* Lavender */
+    --muted-foreground: 210 7% 26%;
 
     /* Semantic */
-    --success: var(--brand-green); /* Success aligns with accent green */
-    --warning: 35.6 90% 48%; /* Approx for #F59E0B */
-    --error: 0 84.2% 60.2%; /* #EF4444 */
-    --destructive: var(--error);
-    --destructive-foreground: 210 40% 98%;
+    --success: var(--brand-mint);
+    --warning: var(--brand-warning);
+    --error: var(--brand-warning);
+    --destructive: var(--brand-warning);
+    --destructive-foreground: 0 0% 100%;
 
     /* UI chrome */
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: var(--brand-blue);
+    --border: 240 10% 90%;
+    --input: 240 10% 90%;
+    --ring: var(--brand-primary);
 
-    /* Radius scale root (base == medium 8px from guideline) */
-    --radius: 0.5rem; /* 8px */
-    --radius-sm: 0.25rem; /* 4px */
-    --radius-lg: 0.75rem; /* 12px */
-    --radius-xl: 1rem; /* 16px */
+    /* Radius scale */
+    --radius: 0.75rem;
+    /* 12px - matches app */
+    --radius-sm: 0.5rem;
+    /* 8px */
+    --radius-lg: 1rem;
+    /* 16px */
+    --radius-xl: 1.5rem;
+    /* 24px */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 11% 7%;
+    /* #11181C - matches app */
+    --foreground: 210 17% 93%;
+    /* #ECEDEE - matches app */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 10% 10%;
+    --card-foreground: 210 17% 93%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 10% 10%;
+    --popover-foreground: 210 17% 93%;
 
-    /* Brand stays consistent in dark mode */
-    --primary: var(--brand-blue);
-    --primary-foreground: 210 40% 98%;
-    --accent: var(--brand-green);
-    --accent-foreground: 210 40% 98%;
+    /* Brand colors adjusted for dark mode - matches app */
+    --brand-primary: 220 100% 71%;
+    /* #6B9FFF - lighter for dark */
+    --brand-secondary: 34 100% 71%;
+    /* #FFB86D - lighter for dark */
+    --brand-accent: 335 100% 77%;
+    /* #FF8AB8 */
+    --brand-mint: 162 50% 66%;
+    /* #7FD4C1 */
+    --brand-lavender: 250 60% 90%;
+    /* #D4C9FF */
+    --brand-warning: 14 100% 74%;
+    /* #FF9B7A */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --primary: var(--brand-primary);
+    --primary-foreground: 210 11% 7%;
+    --secondary: var(--brand-secondary);
+    --secondary-foreground: 210 11% 7%;
+    --accent: var(--brand-accent);
+    --accent-foreground: 0 0% 100%;
 
-    --success: var(--brand-green);
-    --warning: 35.6 90% 48%;
-    --error: 0 84.2% 60.2%;
-    --destructive: var(--error);
-    --destructive-foreground: 210 40% 98%;
+    --muted: 210 10% 15%;
+    --muted-foreground: 210 10% 65%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: var(--brand-blue);
+    --success: var(--brand-mint);
+    --warning: var(--brand-warning);
+    --error: var(--brand-warning);
+    --destructive: var(--brand-warning);
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 10% 20%;
+    --input: 210 10% 20%;
+    --ring: var(--brand-primary);
   }
 }
 
@@ -88,6 +120,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -105,14 +138,22 @@
     white-space: nowrap;
     border-width: 0;
   }
+
   .highlighted-sentence {
     background-color: #FFFFA0;
   }
+
   .dark .highlighted-sentence {
     background-color: rgba(255, 255, 0, 0.2);
   }
-  /* Brand gradient utility */
+
+  /* BabyEase Brand gradient - Primary to Accent */
   .bg-brand-gradient {
-    background-image: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+    background-image: linear-gradient(135deg, #5B7FFF 0%, #FF8AB8 100%);
+  }
+
+  /* Secondary gradient option */
+  .bg-brand-gradient-warm {
+    background-image: linear-gradient(135deg, #FFB347 0%, #FF8AB8 100%);
   }
 }

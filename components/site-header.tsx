@@ -17,14 +17,14 @@ export function SiteHeader({ isLoginPage = false }: SiteHeaderProps) {
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/logo.svg"
-              alt="LearnifyTube"
+              alt="BabyEase"
               width={56}
               height={56}
               priority
               className="h-10 w-auto"
             />
             <span className="text-lg font-semibold tracking-tight text-foreground md:text-xl">
-              LearnifyTube
+              BabyEase
             </span>
           </Link>
         </div>

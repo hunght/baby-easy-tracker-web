@@ -1,186 +1,15 @@
 'use client';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  FaWindows,
-  FaApple,
-  FaLinux,
-  FaDownload,
-  FaMobileAlt,
-  FaAndroid,
-} from 'react-icons/fa';
+import { FaApple, FaGooglePlay } from 'react-icons/fa';
 import Link from 'next/link';
-import { getPlatformDownloadUrl } from '@/utils/handleDownload';
-import { useAppVersion } from '@/hooks/use-app-version';
 import Image from 'next/image';
 import { JsonLd } from 'react-schemaorg';
 import { SoftwareApplication } from 'schema-dts';
+import { appLinks } from '@/config/app-links';
 
 const DownloadPage = () => {
-  const { links, loading, version } = useAppVersion();
-  const [os, setOs] = useState<string | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const [downloadStarted, setDownloadStarted] = useState(false);
-  const [countdown, setCountdown] = useState(5);
-  const [downloadUrl, setDownloadUrl] = useState('');
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-  const [subscribeError, setSubscribeError] = useState('');
-
-  const handlePlatformDownload = useCallback(
-    (platform: string, macArch?: string) => {
-      if (platform === 'windows') {
-        window.location.href = links.windows;
-      } else if (platform === 'mac') {
-        if (macArch === 'intel' && links.macosIntel) {
-          window.location.href = links.macosIntel;
-        } else {
-          window.location.href = links.macos;
-        }
-      } else if (platform === 'linux') {
-        window.location.href = links.linux;
-      } else {
-        window.location.href = links.releases;
-      }
-      setDownloadStarted(true);
-    },
-    [links],
-  );
-
-  const initiateDownload = useCallback(() => {
-    if (downloadStarted) return;
-
-    setDownloadStarted(true);
-    handlePlatformDownload(os || 'unknown');
-  }, [downloadStarted, handlePlatformDownload, os]);
-
-  useEffect(() => {
-    // Detect user's operating system and if it's mobile
-    if (typeof window !== 'undefined') {
-      const userAgent = window.navigator.userAgent.toLowerCase();
-      const mobileRegex =
-        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
-
-      setIsMobile(mobileRegex.test(userAgent));
-
-      // Check for mobile platforms first, then desktop platforms
-      if (userAgent.indexOf('android') !== -1) {
-        setOs('android');
-      } else if (
-        userAgent.indexOf('iphone') !== -1 ||
-        userAgent.indexOf('ipad') !== -1
-      ) {
-        setOs('ios');
-      } else if (userAgent.indexOf('windows') !== -1) {
-        setOs('windows');
-      } else if (userAgent.indexOf('mac') !== -1) {
-        setOs('mac');
-      } else if (userAgent.indexOf('linux') !== -1) {
-        setOs('linux');
-      } else {
-        setOs('unknown');
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!loading) {
-      // Get the platform-specific download URL
-      const url = getPlatformDownloadUrl(links);
-      setDownloadUrl(url);
-
-      // Skip countdown for macOS as we need user to select architecture
-      if (os === 'mac') {
-        return;
-      }
-
-      // Start countdown for auto-download for non-macOS platforms
-      const timer = setInterval(() => {
-        setCountdown((prev) => {
-          if (prev <= 1) {
-            clearInterval(timer);
-            // Auto-start download after countdown
-            initiateDownload();
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-
-      return () => clearInterval(timer);
-    }
-  }, [loading, links, os, initiateDownload]);
-
-  const getOsIcon = () => {
-    switch (os) {
-      case 'windows':
-        return <FaWindows className="text-4xl" />;
-      case 'mac':
-        return <FaApple className="text-4xl" />;
-      case 'linux':
-        return <FaLinux className="text-4xl" />;
-      case 'android':
-        return <FaAndroid className="text-4xl" />;
-      case 'ios':
-        return <FaMobileAlt className="text-4xl" />;
-      default:
-        return <FaDownload className="text-4xl" />;
-    }
-  };
-
-  const getOsName = () => {
-    switch (os) {
-      case 'windows':
-        return 'Windows';
-      case 'mac':
-        return 'macOS';
-      case 'linux':
-        return 'Linux';
-      case 'android':
-        return 'Android';
-      case 'ios':
-        return 'iOS';
-      default:
-        return 'your device';
-    }
-  };
-
-  const getDownloadFileName = (macArch?: string) => {
-    if (!version) return '';
-
-    switch (os) {
-      case 'windows':
-        return `learnifytube-${version}.Setup.exe`;
-      case 'mac':
-        return macArch === 'intel'
-          ? `learnifytube-${version}.dmg`
-          : `learnifytube-${version}-arm64.dmg`;
-      case 'linux':
-        return `learnifytube_${version}_amd64.deb`;
-      default:
-        return `learnifytube-${version}.Setup.exe`;
-    }
-  };
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Basic email validation
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      setSubscribeError('Please enter a valid email address');
-      return;
-    }
-
-    setSubscribeError('');
-
-    // Simulate a short network delay for better UX
-    await new Promise((resolve) => setTimeout(resolve, 600));
-
-    setSubscribed(true);
-    setEmail('');
-  };
-
   return (
     <>
       {/* Structured Data for SEO */}
@@ -188,235 +17,123 @@ const DownloadPage = () => {
         item={{
           '@context': 'https://schema.org',
           '@type': 'SoftwareApplication',
-          name: 'LearnifyTube',
-          applicationCategory: 'MultimediaApplication',
-          operatingSystem: 'Windows, macOS, Linux',
+          name: 'BabyEase',
+          applicationCategory: 'LifestyleApplication',
+          operatingSystem: 'iOS, Android',
           offers: {
             '@type': 'Offer',
             price: '0',
             priceCurrency: 'USD',
           },
-          downloadUrl: 'https://learnifytube.com/download',
+          downloadUrl: 'https://easybabytracker.com/download',
           description:
-            'The smartest YouTube downloader for offline learning. Download videos, playlists, and channels.',
-          softwareVersion: version || 'latest',
-          image: 'https://learnifytube.com/logo-300.png',
+            'The lightweight baby tracking app to log feeds, sleep, diapers, and more.',
+          image: 'https://easybabytracker.com/logo-300.png',
           author: {
             '@type': 'Person',
             name: 'Hung Hoang',
           },
         }}
       />
-      <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-purple-50 to-white p-4">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4 dark:from-slate-900 dark:to-slate-800">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full max-w-3xl rounded-2xl bg-white p-8 shadow-xl md:p-12"
+          className="w-full max-w-2xl rounded-2xl bg-white p-8 shadow-xl dark:bg-slate-800 md:p-12"
         >
           <div className="mb-8 text-center">
             <Image
-              src="/icon-300.png"
-              alt="LearnifyTube Logo"
+              src="/logo-300.png"
+              alt="BabyEase Logo"
               width={120}
               height={120}
               className="mx-auto mb-6 h-24 w-24"
             />
-            <h1 className="mb-2 text-3xl font-bold text-gray-800 md:text-4xl">
-              Download LearnifyTube
+            <h1 className="mb-2 text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">
+              Download BabyEase
             </h1>
-            <p className="text-lg text-gray-600">
-              Your smart YouTube downloader for offline learning
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              The lightweight baby tracking app for busy parents
             </p>
-            {!loading && version && (
-              <p className="mt-2 text-sm text-purple-600">Version {version}</p>
-            )}
           </div>
 
-          {loading ? (
-            <div className="py-8 text-center">
-              <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-purple-700"></div>
-              <p className="text-gray-600">Loading download information...</p>
+          <div className="mb-8 grid gap-4 md:grid-cols-2">
+            {/* iOS Download */}
+            <a
+              href={appLinks.ios}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-3 rounded-xl bg-black px-6 py-4 text-white transition-transform hover:scale-105"
+            >
+              <FaApple className="text-3xl" />
+              <div className="text-left">
+                <p className="text-xs">Download on the</p>
+                <p className="text-xl font-semibold">App Store</p>
+              </div>
+            </a>
+
+            {/* Android Download */}
+            <a
+              href={appLinks.android}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-3 rounded-xl bg-green-600 px-6 py-4 text-white transition-transform hover:scale-105"
+            >
+              <FaGooglePlay className="text-3xl" />
+              <div className="text-left">
+                <p className="text-xs">Get it on</p>
+                <p className="text-xl font-semibold">Google Play</p>
+              </div>
+            </a>
+          </div>
+
+          {/* Features */}
+          <div className="mb-8">
+            <h2 className="mb-4 text-center text-xl font-semibold text-gray-800 dark:text-white">
+              What you can track
+            </h2>
+            <div className="grid grid-cols-2 gap-3 text-center md:grid-cols-4">
+              <div className="rounded-lg bg-blue-50 p-3 dark:bg-slate-700">
+                <span className="text-2xl">🍼</span>
+                <p className="mt-1 text-sm font-medium">Feeding</p>
+              </div>
+              <div className="rounded-lg bg-purple-50 p-3 dark:bg-slate-700">
+                <span className="text-2xl">😴</span>
+                <p className="mt-1 text-sm font-medium">Sleep</p>
+              </div>
+              <div className="rounded-lg bg-yellow-50 p-3 dark:bg-slate-700">
+                <span className="text-2xl">👶</span>
+                <p className="mt-1 text-sm font-medium">Diapers</p>
+              </div>
+              <div className="rounded-lg bg-green-50 p-3 dark:bg-slate-700">
+                <span className="text-2xl">📈</span>
+                <p className="mt-1 text-sm font-medium">Growth</p>
+              </div>
             </div>
-          ) : isMobile ? (
-            <div className="mb-8 rounded-xl bg-purple-50 p-6 text-center">
-              <div className="mb-4 flex items-center justify-center">
-                {getOsIcon()}
-                <span className="ml-3 text-xl font-medium">
-                  We detected you&apos;re using {getOsName()}
-                </span>
-              </div>
-              {subscribed ? (
-                <p className="text-green-600">
-                  Thank you for subscribing! We&apos;ll notify you when the
-                  mobile version is available.
-                </p>
-              ) : (
-                <form onSubmit={handleSubscribe} className="space-y-4">
-                  <p className="text-gray-600">
-                    Mobile versions are coming soon! Subscribe to get notified:
-                  </p>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    className="w-full rounded-lg border border-gray-300 p-2"
-                  />
-                  {subscribeError && (
-                    <p className="text-sm text-red-600">{subscribeError}</p>
-                  )}
-                  <button
-                    type="submit"
-                    className="w-full rounded-lg bg-purple-600 px-4 py-2 font-medium text-white transition duration-300 hover:bg-purple-700"
-                  >
-                    Subscribe
-                  </button>
-                </form>
-              )}
-            </div>
-          ) : (
-            <>
-              <div className="mb-8 rounded-xl bg-purple-50 p-6 text-center">
-                <div className="mb-4 flex items-center justify-center">
-                  {getOsIcon()}
-                  <span className="ml-3 text-xl font-medium">
-                    We detected you&apos;re using {getOsName()}
-                  </span>
-                </div>
+          </div>
 
-                {downloadStarted ? (
-                  <div className="font-medium text-green-600">
-                    <p className="mb-2">Your download has started!</p>
-                    <p className="text-sm text-gray-600">
-                      If your download doesn&apos;t begin automatically,
-                      <button
-                        onClick={initiateDownload}
-                        className="ml-1 font-medium text-purple-600 underline"
-                      >
-                        click here
-                      </button>
-                    </p>
-                  </div>
-                ) : (
-                  <div>
-                    {os === 'mac' ? (
-                      <div className="mb-4">
-                        <p className="mb-3 text-sm">
-                          Please select your Mac type:
-                        </p>
-                        <div className="flex justify-center space-x-4">
-                          <button
-                            onClick={() => handlePlatformDownload('mac', 'arm')}
-                            className="flex items-center justify-center rounded-lg bg-purple-600 px-6 py-2 font-medium text-white transition duration-300 hover:bg-purple-700"
-                          >
-                            <FaApple className="mr-2" />
-                            Mac with Apple Silicon
-                          </button>
-                          <button
-                            onClick={() =>
-                              handlePlatformDownload('mac', 'intel')
-                            }
-                            className="flex items-center justify-center rounded-lg bg-purple-600 px-6 py-2 font-medium text-white transition duration-300 hover:bg-purple-700"
-                          >
-                            <FaApple className="mr-2" />
-                            Mac with Intel Chip
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <>
-                        <p className="mb-4">
-                          Your download will begin automatically in{' '}
-                          <span className="font-bold">{countdown}</span> seconds
-                        </p>
-                        <button
-                          onClick={initiateDownload}
-                          className="mx-auto flex items-center justify-center rounded-lg bg-purple-600 px-8 py-3 font-bold text-white transition duration-300 hover:bg-purple-700"
-                        >
-                          <FaDownload className="mr-2" />
-                          Download Now{' '}
-                          {getDownloadFileName() &&
-                            `(${getDownloadFileName()})`}
-                        </button>
-                      </>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              <div className="mb-8 grid gap-4 md:grid-cols-3">
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
-                  <FaWindows className="mx-auto mb-2 text-2xl text-gray-700" />
-                  <p className="font-medium">Windows</p>
-                  <button
-                    onClick={() => handlePlatformDownload('windows')}
-                    className="mt-1 text-sm text-purple-600 underline hover:text-purple-800"
-                  >
-                    Download
-                  </button>
-                </div>
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
-                  <FaApple className="mx-auto mb-2 text-2xl text-gray-700" />
-                  <p className="font-medium">macOS</p>
-                  <div className="mt-1 flex justify-center space-x-2 text-sm">
-                    <button
-                      onClick={() => handlePlatformDownload('mac', 'arm')}
-                      className="text-purple-600 underline hover:text-purple-800"
-                    >
-                      Apple Silicon
-                    </button>
-                    <span className="text-gray-400">|</span>
-                    <button
-                      onClick={() => handlePlatformDownload('mac', 'intel')}
-                      className="text-purple-600 underline hover:text-purple-800"
-                    >
-                      Intel
-                    </button>
-                  </div>
-                </div>
-                <div className="rounded-lg bg-gray-50 p-4 text-center">
-                  <FaLinux className="mx-auto mb-2 text-2xl text-gray-700" />
-                  <p className="font-medium">Linux</p>
-                  <button
-                    onClick={() => handlePlatformDownload('linux')}
-                    className="mt-1 text-sm text-purple-600 underline hover:text-purple-800"
-                  >
-                    Download
-                  </button>
-                </div>
-              </div>
-            </>
-          )}
-
-          <div className="text-center text-gray-600">
+          <div className="text-center text-gray-600 dark:text-gray-400">
             <p className="mb-4">
-              Having trouble? Check our{' '}
+              Have questions? Check our{' '}
               <Link
-                href="/faq"
-                className="text-purple-600 underline hover:text-purple-800"
+                href="/blog"
+                className="text-blue-600 underline hover:text-blue-800 dark:text-blue-400"
               >
-                FAQ
+                Blog
               </Link>{' '}
-              or
+              or{' '}
               <Link
-                href="/contact"
-                className="ml-1 text-purple-600 underline hover:text-purple-800"
+                href="/feedback"
+                className="text-blue-600 underline hover:text-blue-800 dark:text-blue-400"
               >
-                contact support
+                send feedback
               </Link>
               .
             </p>
             <p className="text-sm">
               By downloading, you agree to our{' '}
-              <Link href="/terms" className="text-purple-600 hover:underline">
-                Terms of Service
-              </Link>{' '}
-              and
-              <Link
-                href="/privacy-policy"
-                className="ml-1 text-purple-600 hover:underline"
-              >
+              <Link href="/privacy" className="text-blue-600 hover:underline dark:text-blue-400">
                 Privacy Policy
               </Link>
               .

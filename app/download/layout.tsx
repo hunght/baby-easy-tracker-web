@@ -1,38 +1,37 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title:
-    'Download LearnifyTube - Free YouTube Downloader for Windows, macOS & Linux',
+  title: 'Download BabyEase - Free Baby Tracking App for iOS & Android',
   description:
-    'Download LearnifyTube for free. The smartest YouTube downloader for offline learning. Available for Windows, macOS (Apple Silicon & Intel), and Linux. Open-source and privacy-focused.',
+    'Download BabyEase for free. The lightweight baby tracking app to log feeds, sleep, diapers, and more. Available on iOS App Store and Google Play. Open-source and privacy-focused.',
   keywords:
-    'download LearnifyTube, youtube downloader download, free youtube downloader, download videos, desktop app, Windows, macOS, Linux, Apple Silicon, offline learning',
+    'download BabyEase, baby tracker app, free baby app, feeding tracker, sleep tracker, diaper log, iOS, Android, parenting app',
   openGraph: {
-    title: 'Download LearnifyTube - Free YouTube Downloader',
+    title: 'Download BabyEase - Free Baby Tracking App',
     description:
-      'Download LearnifyTube for free. The smartest YouTube downloader for offline learning. Available for Windows, macOS, and Linux.',
+      'Download BabyEase for free. Track your baby\'s feeds, sleep, and diapers. Available on iOS and Android.',
     type: 'website',
-    url: 'https://learnifytube.com/download',
+    url: 'https://easybabytracker.com/download',
     images: [
       {
-        url: 'https://learnifytube.com/logo-300.png',
+        url: 'https://easybabytracker.com/logo-300.png',
         width: 300,
         height: 300,
-        alt: 'LearnifyTube Logo',
+        alt: 'BabyEase Logo',
       },
     ],
-    siteName: 'LearnifyTube',
+    siteName: 'BabyEase',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Download LearnifyTube - Free YouTube Downloader',
+    title: 'Download BabyEase - Free Baby Tracking App',
     description:
-      'Download LearnifyTube for free. Available for Windows, macOS, and Linux. The smartest YouTube downloader for offline learning.',
-    images: ['https://learnifytube.com/logo-300.png'],
+      'Download BabyEase for free. Available on iOS and Android. The lightweight baby tracking app for busy parents.',
+    images: ['https://easybabytracker.com/logo-300.png'],
     creator: '@buddy_beep_com',
   },
   alternates: {
-    canonical: 'https://learnifytube.com/download',
+    canonical: 'https://easybabytracker.com/download',
   },
   robots: {
     index: true,

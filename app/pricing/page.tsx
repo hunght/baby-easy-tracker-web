@@ -3,19 +3,19 @@ import React from 'react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'LearnifyTube Pricing - Choose Your Plan',
+  title: 'BabyEase Pricing - Free Baby Tracking App',
   description:
-    'Explore LearnifyTube pricing options and choose the plan that best fits your needs.',
+    'BabyEase is completely free! Explore our open-source baby tracking app with no hidden fees.',
   openGraph: {
-    title: 'LearnifyTube Pricing - Choose Your Plan',
+    title: 'BabyEase Pricing - Free Baby Tracking App',
     description:
-      'Explore LearnifyTube pricing options and choose the plan that best fits your needs.',
-    url: 'https://learnifytube.com/pricing',
+      'BabyEase is completely free! Explore our open-source baby tracking app with no hidden fees.',
+    url: 'https://easybabytracker.com/pricing',
   },
   twitter: {
-    title: 'LearnifyTube Pricing - Choose Your Plan',
+    title: 'BabyEase Pricing - Free Baby Tracking App',
     description:
-      'Explore LearnifyTube pricing options and choose the plan that best fits your needs.',
+      'BabyEase is completely free! Explore our open-source baby tracking app with no hidden fees.',
   },
 };
 
@@ -29,7 +29,7 @@ const PricingPage: React.FC = () => {
         Just kidding, it&apos;s totally free!
       </p>
       <p className="text-center text-xl font-semibold">
-        We believe in spreading knowledge, not emptying wallets. Enjoy LearnifyTube
+        We believe in supporting parents, not emptying wallets. Enjoy BabyEase
         without spending a single penny!
       </p>
     </div>

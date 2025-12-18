@@ -134,9 +134,9 @@ export default function FeedbackPage() {
               type="button"
               variant="outline"
               className="flex-1"
-              onClick={() => window.open(siteConfig.links.discord, '_blank')}
+              onClick={() => window.open(siteConfig.links.twitter, '_blank')}
             >
-              Join our Discord
+              Follow us on Twitter
             </Button>
           </CardFooter>
         </form>
