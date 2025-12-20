@@ -114,11 +114,6 @@ export default function Home() {
             price: '0',
             priceCurrency: 'USD',
           },
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            ratingCount: '50',
-          },
           downloadUrl: 'https://babyease.app/download',
         }}
       />
