@@ -1,0 +1,63 @@
+{
+    "Index": {
+        "title": "BabyEase: Free Baby Tracking App for iOS & Android",
+        "description": "BabyEase: Free open-source baby tracking app. Log feeds, sleep, diapers, and more. Track your baby's daily activities with our privacy-focused mobile app for iOS and Android.",
+        "hero": {
+            "titlePart1": "Track Your Baby's",
+            "titlePart2": "Daily Journey",
+            "subtitle": "The simple, free baby tracking app. Log feeds, sleep, and diapers with one tap. No ads, no subscriptions.",
+            "rating": "4.9 rating • Free on iOS & Android"
+        },
+        "features": {
+            "title": "Everything You Need",
+            "subtitle": "Simple, powerful tools for busy parents",
+            "feeding": {
+                "title": "Feeding",
+                "description": "Track breastfeeding, bottle feeds, and solid foods"
+            },
+            "sleep": {
+                "title": "Sleep",
+                "description": "Log naps and nighttime sleep with duration"
+            },
+            "diaper": {
+                "title": "Diapers",
+                "description": "Record diaper changes with wetness and notes"
+            },
+            "charts": {
+                "title": "Charts",
+                "description": "Visualize patterns with beautiful charts"
+            },
+            "easy": {
+                "title": "EASY Schedule",
+                "description": "Follow Eat-Activity-Sleep-You routines"
+            },
+            "habits": {
+                "title": "Habits",
+                "description": "Track daily habits and milestones"
+            }
+        },
+        "screenshots": {
+            "title": "Designed for One Hand",
+            "subtitle": "Track everything while holding your baby"
+        },
+        "testimonial": {
+            "quote": "Finally, a baby app that doesn't overwhelm me. Simple, fast, and actually useful!",
+            "author": "Happy Parent"
+        },
+        "cta": {
+            "title": "Ready to Simplify Baby Care?",
+            "subtitle": "Join thousands of parents tracking with ease.",
+            "features": {
+                "free": "Free forever",
+                "noAds": "No ads",
+                "privacy": "Privacy-focused"
+            }
+        }
+    },
+    "Navigation": {
+        "privacy": "Privacy",
+        "blog": "Blog",
+        "feedback": "Feedback",
+        "twitter": "X / Twitter"
+    }
+}

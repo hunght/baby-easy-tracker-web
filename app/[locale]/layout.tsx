@@ -29,24 +29,33 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+
+export default async function RootLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className="scroll-pt-[3.5rem]" suppressHydrationWarning>
+    <html lang={locale} className="scroll-pt-[3.5rem]" suppressHydrationWarning>
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
           inter.variable,
         )}
       >
-        <PostHogProvider>
-          <Providers>{children}</Providers>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <PostHogProvider>
+            <Providers>{children}</Providers>
 
-          <Toaster />
-        </PostHogProvider>
+            <Toaster />
+          </PostHogProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

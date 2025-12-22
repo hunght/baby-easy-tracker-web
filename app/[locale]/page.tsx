@@ -7,88 +7,100 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { DownloadButton } from '@/components/download-button';
 import { siteConfig } from '@/config/site';
+import { getTranslations } from 'next-intl/server';
 
-const description =
-  "BabyEase: Free open-source baby tracking app. Log feeds, sleep, diapers, and more. Track your baby's daily activities with our privacy-focused mobile app for iOS and Android.";
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'Index' });
 
-export const metadata: Metadata = {
-  title: 'BabyEase: Free Baby Tracking App for iOS & Android',
-  description: description,
-  keywords:
-    'baby tracker, baby tracking app, feeding tracker, sleep tracker, diaper log, open-source, mobile app, parenting, newborn care, baby care app',
-  openGraph: {
-    title: 'BabyEase - Free Baby Tracking App',
-    description: description,
-    type: 'website',
-    url: 'https://babyease.app',
-    images: [
-      {
-        url: 'https://babyease.app/logo-300.png',
-        width: 300,
-        height: 300,
-        alt: 'BabyEase Logo',
-      },
-    ],
-    siteName: 'BabyEase',
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'BabyEase - Free Baby Tracking App',
-    description: description,
-    images: [
-      {
-        url: 'https://babyease.app/logo-300.png',
-        alt: 'BabyEase Logo',
-      },
-    ],
-    creator: '@hugboringdev',
-    site: '@hugboringdev',
-  },
-  alternates: {
-    canonical: 'https://babyease.app',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords:
+      'baby tracker, baby tracking app, feeding tracker, sleep tracker, diaper log, open-source, mobile app, parenting, newborn care, baby care app',
+    openGraph: {
+      title: 'BabyEase - Free Baby Tracking App',
+      description: t('description'),
+      type: 'website',
+      url: 'https://babyease.app',
+      images: [
+        {
+          url: 'https://babyease.app/logo-300.png',
+          width: 300,
+          height: 300,
+          alt: 'BabyEase Logo',
+        },
+      ],
+      siteName: 'BabyEase',
+      locale: locale === 'vi' ? 'vi_VN' : 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'BabyEase - Free Baby Tracking App',
+      description: t('description'),
+      images: [
+        {
+          url: 'https://babyease.app/logo-300.png',
+          alt: 'BabyEase Logo',
+        },
+      ],
+      creator: '@hugboringdev',
+      site: '@hugboringdev',
+    },
+    alternates: {
+      canonical: 'https://babyease.app',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
-// Feature data
-const features = [
-  {
-    icon: '🍼',
-    title: 'Feeding',
-    description: 'Track breastfeeding, bottle feeds, and solid foods',
-  },
-  {
-    icon: '😴',
-    title: 'Sleep',
-    description: 'Log naps and nighttime sleep with duration',
-  },
-  {
-    icon: '👶',
-    title: 'Diapers',
-    description: 'Record diaper changes with wetness and notes',
-  },
-  {
-    icon: '📊',
-    title: 'Charts',
-    description: 'Visualize patterns with beautiful charts',
-  },
-  {
-    icon: '📅',
-    title: 'EASY Schedule',
-    description: 'Follow Eat-Activity-Sleep-You routines',
-  },
-  {
-    icon: '✅',
-    title: 'Habits',
-    description: 'Track daily habits and milestones',
-  },
-];
+export default async function Home({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale, namespace: 'Index' });
 
-export default function Home() {
+  // Feature data
+  const features = [
+    {
+      icon: '🍼',
+      title: t('features.feeding.title'),
+      description: t('features.feeding.description'),
+    },
+    {
+      icon: '😴',
+      title: t('features.sleep.title'),
+      description: t('features.sleep.description'),
+    },
+    {
+      icon: '👶',
+      title: t('features.diaper.title'),
+      description: t('features.diaper.description'),
+    },
+    {
+      icon: '📊',
+      title: t('features.charts.title'),
+      description: t('features.charts.description'),
+    },
+    {
+      icon: '📅',
+      title: t('features.easy.title'),
+      description: t('features.easy.description'),
+    },
+    {
+      icon: '✅',
+      title: t('features.habits.title'),
+      description: t('features.habits.description'),
+    },
+  ];
+
   return (
     <>
       {/* Structured Data for SEO */}
@@ -98,8 +110,8 @@ export default function Home() {
           '@type': 'WebSite',
           name: 'BabyEase',
           url: 'https://babyease.app',
-          description: description,
-          inLanguage: 'en-US',
+          description: t('description'),
+          inLanguage: locale === 'vi' ? 'vi-VN' : 'en-US',
         }}
       />
       <JsonLd<SoftwareApplication>
@@ -130,17 +142,16 @@ export default function Home() {
                 <div className="flex flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
                   <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
                     <span className="text-slate-800 dark:text-white">
-                      Track Your Baby&apos;s
+                      {t('hero.titlePart1')}
                     </span>
                     <br />
                     <span className="bg-gradient-to-r from-[#5B7FFF] to-[#FF8AB8] bg-clip-text text-transparent">
-                      Daily Journey
+                      {t('hero.titlePart2')}
                     </span>
                   </h1>
 
                   <p className="mb-8 max-w-lg text-lg text-slate-600 dark:text-slate-300">
-                    The simple, free baby tracking app. Log feeds, sleep, and
-                    diapers with one tap. No ads, no subscriptions.
+                    {t('hero.subtitle')}
                   </p>
 
                   <DownloadButton />
@@ -159,7 +170,7 @@ export default function Home() {
                         </svg>
                       ))}
                     </div>
-                    <span>4.9 rating • Free on iOS & Android</span>
+                    <span>{t('hero.rating')}</span>
                   </div>
                 </div>
 
@@ -191,10 +202,10 @@ export default function Home() {
             <div className="container mx-auto px-4">
               <div className="mb-12 text-center">
                 <h2 className="mb-4 text-3xl font-bold text-slate-800 dark:text-white">
-                  Everything You Need
+                  {t('features.title')}
                 </h2>
                 <p className="text-slate-600 dark:text-slate-300">
-                  Simple, powerful tools for busy parents
+                  {t('features.subtitle')}
                 </p>
               </div>
 
@@ -222,10 +233,10 @@ export default function Home() {
             <div className="container mx-auto px-4">
               <div className="mb-12 text-center">
                 <h2 className="mb-4 text-3xl font-bold text-slate-800 dark:text-white">
-                  Designed for One Hand
+                  {t('screenshots.title')}
                 </h2>
                 <p className="text-slate-600 dark:text-slate-300">
-                  Track everything while holding your baby
+                  {t('screenshots.subtitle')}
                 </p>
               </div>
 
@@ -267,10 +278,9 @@ export default function Home() {
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <blockquote className="mb-4 text-xl md:text-2xl font-medium">
-                  &quot;Finally, a baby app that doesn&apos;t overwhelm me. Simple,
-                  fast, and actually useful!&quot;
+                  &quot;{t('testimonial.quote')}&quot;
                 </blockquote>
-                <p className="text-white/80">— Happy Parent</p>
+                <p className="text-white/80">— {t('testimonial.author')}</p>
               </div>
             </div>
           </section>
@@ -279,67 +289,25 @@ export default function Home() {
           <section className="py-20">
             <div className="container mx-auto px-4 text-center">
               <h2 className="mb-4 text-3xl font-bold text-slate-800 dark:text-white">
-                Ready to Simplify Baby Care?
+                {t('cta.title')}
               </h2>
               <p className="mb-8 text-slate-600 dark:text-slate-300">
-                Join thousands of parents tracking with ease.
+                {t('cta.subtitle')}
               </p>
               <div className="flex justify-center">
                 <DownloadButton />
               </div>
 
               <div className="mt-8 flex justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
-                <span>✓ Free forever</span>
-                <span>✓ No ads</span>
-                <span>✓ Privacy-focused</span>
+                <span>✓ {t('cta.features.free')}</span>
+                <span>✓ {t('cta.features.noAds')}</span>
+                <span>✓ {t('cta.features.privacy')}</span>
               </div>
             </div>
           </section>
         </main>
 
-        {/* Simplified Footer */}
-        <footer className="border-t border-slate-200 py-8 dark:border-slate-700">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/logo.svg"
-                  alt="BabyEase"
-                  width={32}
-                  height={32}
-                  className="h-8 w-8"
-                />
-                <span className="font-semibold text-slate-800 dark:text-white">
-                  BabyEase
-                </span>
-              </div>
-
-              <div className="flex gap-6 text-sm text-slate-500 dark:text-slate-400">
-                <Link href="/privacy" className="hover:text-slate-800 dark:hover:text-white">
-                  Privacy
-                </Link>
-                <Link href="/blog" className="hover:text-slate-800 dark:hover:text-white">
-                  Blog
-                </Link>
-                <Link href="/feedback" className="hover:text-slate-800 dark:hover:text-white">
-                  Feedback
-                </Link>
-                <a
-                  href={siteConfig.links.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-slate-800 dark:hover:text-white"
-                >
-                  X / Twitter
-                </a>
-              </div>
-
-              <p className="text-sm text-slate-400">
-                © {new Date().getFullYear()} BabyEase
-              </p>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );

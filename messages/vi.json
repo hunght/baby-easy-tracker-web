@@ -1,0 +1,63 @@
+{
+    "Index": {
+        "title": "BabyEase: Ứng dụng theo dõi bé miễn phí trên iOS & Android",
+        "description": "BabyEase: Ứng dụng theo dõi bé mã nguồn mở miễn phí. Ghi lại dữ liệu ăn, ngủ, tã và nhiều hơn nữa. Theo dõi các hoạt động hàng ngày của bé với ứng dụng di động tập trung vào quyền riêng tư trên iOS và Android.",
+        "hero": {
+            "titlePart1": "Theo dõi hành trình",
+            "titlePart2": "Hàng ngày của bé",
+            "subtitle": "Ứng dụng theo dõi bé đơn giản, miễn phí. Ghi lại dữ liệu ăn, ngủ và tã chỉ với một chạm. Không quảng cáo, không phí đăng ký.",
+            "rating": "4.9 đánh giá • Miễn phí trên iOS & Android"
+        },
+        "features": {
+            "title": "Mọi thứ bạn cần",
+            "subtitle": "Công cụ đơn giản, mạnh mẽ cho ba mẹ bận rộn",
+            "feeding": {
+                "title": "Cho ăn",
+                "description": "Theo dõi bú mẹ, uống sữa bình và ăn dặm"
+            },
+            "sleep": {
+                "title": "Giấc ngủ",
+                "description": "Ghi lại các giấc ngủ ngắn và ngủ đêm"
+            },
+            "diaper": {
+                "title": "Thay tã",
+                "description": "Ghi lại số lần thay tã, độ ướt và ghi chú"
+            },
+            "charts": {
+                "title": "Biểu đồ",
+                "description": "Trực quan hóa các quy luật với biểu đồ đẹp mắt"
+            },
+            "easy": {
+                "title": "Lịch trình E.A.S.Y",
+                "description": "Theo dõi thói quen Ăn-Chơi-Ngủ-Của mẹ"
+            },
+            "habits": {
+                "title": "Thói quen",
+                "description": "Theo dõi các thói quen hàng ngày và mốc phát triển"
+            }
+        },
+        "screenshots": {
+            "title": "Thiết kế cho một tay",
+            "subtitle": "Theo dõi mọi thứ trong khi đang bế bé"
+        },
+        "testimonial": {
+            "quote": "Cuối cùng cũng có một ứng dụng cho bé không làm tôi thấy ngợp. Đơn giản, nhanh và thực sự hữu ích!",
+            "author": "Một phụ huynh hạnh phúc"
+        },
+        "cta": {
+            "title": "Sẵn sàng để việc chăm sóc bé dễ dàng hơn?",
+            "subtitle": "Tham gia cùng hàng ngàn ba mẹ đang theo dõi bé một cách dễ dàng.",
+            "features": {
+                "free": "Miễn phí mãi mãi",
+                "noAds": "Không quảng cáo",
+                "privacy": "Bảo mật riêng tư"
+            }
+        }
+    },
+    "Navigation": {
+        "privacy": "Riêng tư",
+        "blog": "Blog",
+        "feedback": "Góp ý",
+        "twitter": "X / Twitter"
+    }
+}

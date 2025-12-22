@@ -1,35 +1,50 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { siteConfig } from '@/config/site';
-import { Mail } from 'lucide-react';
-import { Icons } from './icons';
 
 export function SiteFooter() {
+  const t = useTranslations('Navigation');
+
   return (
-    <footer className="border-t">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
-          <div className="flex space-x-4">
+    <footer className="border-t border-slate-200 py-8 dark:border-slate-700">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="flex items-center gap-2">
+            <Image
+              src="/logo.svg"
+              alt="BabyEase"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+            />
+            <span className="font-semibold text-slate-800 dark:text-white">
+              BabyEase
+            </span>
+          </div>
+
+          <div className="flex gap-6 text-sm text-slate-500 dark:text-slate-400">
+            <Link href="/privacy" className="hover:text-slate-800 dark:hover:text-white">
+              {t('privacy')}
+            </Link>
+            <Link href="/blog" className="hover:text-slate-800 dark:hover:text-white">
+              {t('blog')}
+            </Link>
+            <Link href="/feedback" className="hover:text-slate-800 dark:hover:text-white">
+              {t('feedback')}
+            </Link>
             <a
-              target="_blank"
-              rel="noreferrer"
               href={siteConfig.links.twitter}
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <span className="sr-only">Twitter</span>
-              <Icons.twitter className="h-5 w-5" />
-            </a>
-            <a
               target="_blank"
-              rel="noreferrer"
-              href={siteConfig.links.github}
-              className="text-muted-foreground transition-colors hover:text-foreground"
+              rel="noopener noreferrer"
+              className="hover:text-slate-800 dark:hover:text-white"
             >
-              <span className="sr-only">GitHub</span>
-              <Icons.gitHub className="h-5 w-5" />
+              {t('twitter')}
             </a>
           </div>
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} {siteConfig.name}. All rights
-            reserved.
+
+          <p className="text-sm text-slate-400">
+            © {new Date().getFullYear()} BabyEase
           </p>
         </div>
       </div>

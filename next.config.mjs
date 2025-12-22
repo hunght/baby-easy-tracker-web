@@ -1,5 +1,8 @@
 import { build } from 'velite';
 import withPWA from 'next-pwa';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -32,9 +35,9 @@ class VeliteWebpackPlugin {
   }
 }
 
-export default withPWA({
+export default withNextIntl(withPWA({
   dest: 'public',
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development'
-})(nextConfig);
+})(nextConfig));
