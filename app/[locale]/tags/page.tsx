@@ -1,28 +1,29 @@
 import { getAllTags, sortTagsByCount } from '@/lib/utils';
 import { Metadata } from 'next';
-import { posts } from '#site/content';
+import { getAllPosts } from '@/lib/blog';
 import { Tag } from '@/components/tag';
 
 export const metadata: Metadata = {
-  title: 'Tags - iTracksy',
+  title: 'Tags - BabyEase',
   description:
-    'Explore all topic tags for iTracksy blog posts. Find articles on various subjects and categories.',
+    'Explore all topic tags for BabyEase blog posts. Find articles on parenting, baby care, and more.',
   openGraph: {
-    title: 'Tags - iTracksy',
+    title: 'Tags - BabyEase',
     description:
-      'Explore all topic tags for iTracksy blog posts. Find articles on various subjects and categories.',
+      'Explore all topic tags for BabyEase blog posts. Find articles on parenting, baby care, and more.',
     type: 'website',
-    url: 'https://www.itracksy.com/tags',
+    url: 'https://easybabytracker.com/tags',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tags - iTracksy',
+    title: 'Tags - BabyEase',
     description:
-      'Explore all topic tags for iTracksy blog posts. Find articles on various subjects and categories.',
+      'Explore all topic tags for BabyEase blog posts. Find articles on parenting, baby care, and more.',
   },
 };
 
 export default async function TagsPage() {
+  const posts = getAllPosts();
   const tags = getAllTags(posts);
   const sortedTags = sortTagsByCount(tags);
 
@@ -32,7 +33,7 @@ export default async function TagsPage() {
         <div className="flex-1 space-y-4">
           <h1 className="inline-block text-4xl font-black lg:text-5xl">Tags</h1>
           <p className="text-xl text-muted-foreground">
-            Browse all topics and categories covered in iTracksy blog posts.
+            Browse all topics and categories covered in BabyEase blog posts.
           </p>
         </div>
       </div>
@@ -50,17 +51,17 @@ export default async function TagsPage() {
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'Tags - iTracksy',
+          name: 'Tags - BabyEase',
           description:
-            'Explore all topic tags for iTracksy blog posts. Find articles on various subjects and categories.',
-          url: 'https://www.itracksy.com/tags',
+            'Explore all topic tags for BabyEase blog posts. Find articles on parenting, baby care, and more.',
+          url: 'https://easybabytracker.com/tags',
           mainEntity: {
             '@type': 'ItemList',
             itemListElement: sortedTags.map((tag, index) => ({
               '@type': 'ListItem',
               position: index + 1,
               name: tag,
-              url: `https://www.itracksy.com/tags/${tag}`,
+              url: `https://easybabytracker.com/tags/${tag}`,
             })),
           },
         })}

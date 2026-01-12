@@ -1,4 +1,4 @@
-import { posts } from '#site/content';
+import { getAllPosts } from '@/lib/blog';
 import { PostItem } from '@/components/post-item';
 import { Tag } from '@/components/tag';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,42 +7,44 @@ import { slug } from 'github-slugger';
 import { Metadata } from 'next';
 
 interface TagPageProps {
-  params: {
+  params: Promise<{
     tag: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: TagPageProps): Promise<Metadata> {
-  const { tag } = params;
+  const { tag } = await params;
   const title = tag.split('-').join(' ');
   return {
-    title: `${title} - iTracksy`,
+    title: `${title} - BabyEase`,
     description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
     openGraph: {
-      title: `${title} - iTracksy`,
+      title: `${title} - BabyEase`,
       description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
       type: 'website',
-      url: `https://itracksy.com/tags/${tag}`,
+      url: `https://easybabytracker.com/tags/${tag}`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${title} - iTracksy`,
+      title: `${title} - BabyEase`,
       description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
     },
   };
 }
 
 export const generateStaticParams = () => {
+  const posts = getAllPosts();
   const tags = getAllTags(posts);
   const paths = Object.keys(tags).map((tag) => ({ tag: slug(tag) }));
   return paths;
 };
 
-export default function TagPage({ params }: TagPageProps) {
-  const { tag } = params;
+export default async function TagPage({ params }: TagPageProps) {
+  const { tag } = await params;
   const title = tag.split('-').join(' ');
+  const posts = getAllPosts();
 
   const displayPosts = getPostsByTagSlug(posts, tag);
   const tags = getAllTags(posts);
@@ -96,15 +98,15 @@ export default function TagPage({ params }: TagPageProps) {
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: `${title} - iTracksy`,
+          name: `${title} - BabyEase`,
           description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
-          url: `https://itracksy.com/tags/${tag}`,
+          url: `https://easybabytracker.com/tags/${tag}`,
           mainEntity: {
             '@type': 'ItemList',
             itemListElement: displayPosts.map((post, index) => ({
               '@type': 'ListItem',
               position: index + 1,
-              url: `https://itracksy.com/posts/${post.slug}`,
+              url: `https://easybabytracker.com/posts/${post.slug}`,
               name: post.title,
             })),
           },
