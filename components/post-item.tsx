@@ -10,6 +10,7 @@ interface PostItemProps {
   description?: string;
   date: string;
   tags?: Array<string>;
+  locale?: string;
 }
 
 export function PostItem({
@@ -18,12 +19,15 @@ export function PostItem({
   description,
   date,
   tags,
+  locale,
 }: PostItemProps) {
+  const href = locale ? `/${locale}/${slug}` : `/${slug}`;
+
   return (
     <article className="flex flex-col gap-2 rounded-lg border-b border-border bg-card p-6 py-3 shadow-md">
       <div>
         <h2 className="text-2xl font-bold">
-          <Link href={'/' + slug}>{title}</Link>
+          <Link href={href}>{title}</Link>
         </h2>
       </div>
       <div className="flex flex-wrap gap-2">
@@ -39,7 +43,7 @@ export function PostItem({
           </dd>
         </dl>
         <Link
-          href={'/' + slug}
+          href={href}
           className={cn(buttonVariants({ variant: 'link' }), 'py-0')}
         >
           Read more →

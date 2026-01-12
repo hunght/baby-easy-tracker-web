@@ -26,15 +26,19 @@ export const metadata: Metadata = {
 const POSTS_PER_PAGE = 5;
 
 interface BlogPageProps {
+  params: Promise<{
+    locale: string;
+  }>;
   searchParams: Promise<{
     page?: string;
   }>;
 }
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {
+export default async function BlogPage({ params, searchParams }: BlogPageProps) {
+  const { locale } = await params;
   const resolvedSearchParams = await searchParams;
   const currentPage = Number(resolvedSearchParams?.page) || 1;
-  const posts = getAllPosts();
+  const posts = getAllPosts(locale);
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
 
   const displayPosts = posts.slice(
@@ -72,6 +76,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       title={title}
                       description={description}
                       tags={tags}
+                      locale={locale}
                     />
                   </li>
                 );

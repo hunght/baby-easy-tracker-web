@@ -53,22 +53,31 @@ export function getPostBySlug(slug: string): Post | null {
   };
 }
 
-export function getAllPosts(): Post[] {
+/**
+ * Get all posts, optionally filtered by locale.
+ * Posts without a locale field default to 'en'.
+ */
+export function getAllPosts(locale?: string): Post[] {
   const slugs = getPostSlugs();
-  const posts = slugs
+  let posts = slugs
     .map((slug) => getPostBySlug(slug.replace(/\.mdx$/, '')))
     .filter((post): post is Post => post !== null && post.published)
     .sort((a, b) => (a.date > b.date ? -1 : 1));
 
+  // Filter by locale if provided
+  if (locale) {
+    posts = posts.filter((post) => (post.locale || 'en') === locale);
+  }
+
   return posts;
 }
 
-export function getPostsByTag(tag: string): Post[] {
-  return getAllPosts().filter((post) => post.tags?.includes(tag));
+export function getPostsByTag(tag: string, locale?: string): Post[] {
+  return getAllPosts(locale).filter((post) => post.tags?.includes(tag));
 }
 
-export function getAllTags(): string[] {
-  const posts = getAllPosts();
+export function getAllTags(locale?: string): string[] {
+  const posts = getAllPosts(locale);
   const tags = new Set<string>();
   posts.forEach((post) => {
     post.tags?.forEach((tag) => tags.add(tag));
