@@ -25,6 +25,11 @@ function PostHogPageTracker() {
 }
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
+  // Only render the PostHog provider if the client is initialized
+  if (!posthogClient) {
+    return <>{children}</>;
+  }
+
   return (
     <Provider client={posthogClient}>
       <Suspense fallback={null}>

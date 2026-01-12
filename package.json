@@ -8,10 +8,11 @@
     "dev": "kill -9 $(lsof -i :3000); next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --ext .ts,.tsx",
     "shadcn": "pnpm dlx shadcn@latest add ",
     "clear": "rm -rf .next node_modules/.cache",
-    "generate:icons": "node scripts/generate-icons.mjs"
+    "generate:icons": "node scripts/generate-icons.mjs",
+    "prepare": "husky"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
@@ -119,6 +120,7 @@
     "chrome-types": "^0.1.295",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.5.9",
+    "husky": "^9.1.7",
     "postcss": "^8.5.6",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "rehype-autolink-headings": "^7.1.0",
