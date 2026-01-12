@@ -455,33 +455,45 @@ export function analyzeScheduleAdjustments(
       const wakeWindow = wakeEnd - wakeStart;
 
       if (wakeWindow > maxWakeWindow + 15) {
-        warnings.push({
-          type: 'wake_window_too_long',
-          severity: 'warning',
-          message: {
-            en: `Wake window before ${next.activity === 'S' ? 'nap' : 'bedtime'} is ${Math.round(wakeWindow)} minutes (max recommended: ${maxWakeWindow} min for ${ageWeeks} weeks).`,
-            vi: `Thời gian thức trước ${next.activity === 'S' ? 'giấc ngủ' : 'ngủ đêm'} là ${Math.round(wakeWindow)} phút (khuyến nghị tối đa: ${maxWakeWindow} phút cho bé ${ageWeeks} tuần).`,
-          },
-          suggestion: {
-            en: 'Baby may be overtired. Watch for tired signs earlier. An overtired baby releases cortisol, making it harder to sleep.',
-            vi: 'Bé có thể quá mệt. Chú ý dấu hiệu mệt sớm hơn. Bé quá mệt sẽ tiết cortisol, làm khó ngủ hơn.',
-          },
-        });
+        // Prevent duplicate warnings for the same sleep time
+        const existingWarning = warnings.find(w => w.type === 'wake_window_too_long' &&
+          (w.message.en.includes(next.time) || w.message.vi.includes(next.time)));
+
+        if (!existingWarning) {
+          warnings.push({
+            type: 'wake_window_too_long',
+            severity: 'warning',
+            message: {
+              en: `Wake window before ${next.activity === 'S' ? 'nap' : 'sleep'} at ${next.time} is ${Math.round(wakeWindow)} minutes (max recommended: ${maxWakeWindow} min for ${ageWeeks} weeks).`,
+              vi: `Thời gian thức trước giấc ngủ lúc ${next.time} là ${Math.round(wakeWindow)} phút (khuyến nghị tối đa: ${maxWakeWindow} phút cho bé ${ageWeeks} tuần).`,
+            },
+            suggestion: {
+              en: 'Baby may be overtired. Watch for tired signs earlier. An overtired baby releases cortisol, making it harder to sleep.',
+              vi: 'Bé có thể quá mệt. Chú ý dấu hiệu mệt sớm hơn. Bé quá mệt sẽ tiết cortisol, làm khó ngủ hơn.',
+            },
+          });
+        }
       }
 
       if (wakeWindow < minWakeWindow - 10 && wakeWindow > 0) {
-        warnings.push({
-          type: 'wake_window_too_short',
-          severity: 'info',
-          message: {
-            en: `Wake window is only ${Math.round(wakeWindow)} minutes (min recommended: ${minWakeWindow} min for ${ageWeeks} weeks).`,
-            vi: `Thời gian thức chỉ ${Math.round(wakeWindow)} phút (khuyến nghị tối thiểu: ${minWakeWindow} phút cho bé ${ageWeeks} tuần).`,
-          },
-          suggestion: {
-            en: 'Baby may not be tired enough, which can cause short naps (catnapping). Try extending awake time slightly.',
-            vi: 'Bé có thể chưa đủ mệt, dẫn đến ngủ vặt. Hãy thử kéo dài thời gian thức một chút.',
-          },
-        });
+        // Prevent duplicate warnings for the same sleep time
+        const existingShortWarning = warnings.find(w => w.type === 'wake_window_too_short' &&
+          (w.message.en.includes(next.time) || w.message.vi.includes(next.time)));
+
+        if (!existingShortWarning) {
+          warnings.push({
+            type: 'wake_window_too_short',
+            severity: 'info',
+            message: {
+              en: `Wake window before sleep at ${next.time} is only ${Math.round(wakeWindow)} minutes (min recommended: ${minWakeWindow} min for ${ageWeeks} weeks).`,
+              vi: `Thời gian thức trước giấc ngủ lúc ${next.time} chỉ ${Math.round(wakeWindow)} phút (khuyến nghị tối thiểu: ${minWakeWindow} phút cho bé ${ageWeeks} tuần).`,
+            },
+            suggestion: {
+              en: 'Baby may not be tired enough, which can cause short naps (catnapping). Try extending awake time slightly.',
+              vi: 'Bé có thể chưa đủ mệt, dẫn đến ngủ vặt. Hãy thử kéo dài thời gian thức một chút.',
+            },
+          });
+        }
       }
     }
   }
