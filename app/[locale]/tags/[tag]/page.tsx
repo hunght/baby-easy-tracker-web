@@ -9,6 +9,7 @@ import { Metadata } from 'next';
 interface TagPageProps {
   params: Promise<{
     tag: string;
+    locale: string;
   }>;
 }
 
@@ -42,11 +43,13 @@ export const generateStaticParams = () => {
 };
 
 export default async function TagPage({ params }: TagPageProps) {
-  const { tag } = await params;
-  const title = tag.split('-').join(' ');
-  const posts = getAllPosts();
+  const { tag, locale } = await params;
+  // URL-decode the tag to handle Vietnamese and other non-ASCII characters
+  const decodedTag = decodeURIComponent(tag);
+  const title = decodedTag.split('-').join(' ');
+  const posts = getAllPosts(locale);
 
-  const displayPosts = getPostsByTagSlug(posts, tag);
+  const displayPosts = getPostsByTagSlug(posts, decodedTag);
   const tags = getAllTags(posts);
   const sortedTags = sortTagsByCount(tags);
 
@@ -74,6 +77,7 @@ export default async function TagPage({ params }: TagPageProps) {
                       title={title}
                       description={description}
                       tags={tags}
+                      locale={locale}
                     />
                   </li>
                 );
@@ -94,24 +98,28 @@ export default async function TagPage({ params }: TagPageProps) {
           </CardContent>
         </Card>
       </div>
-      <script type="application/ld+json">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'CollectionPage',
-          name: `${title} - BabyEase`,
-          description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
-          url: `https://easybabytracker.com/tags/${tag}`,
-          mainEntity: {
-            '@type': 'ItemList',
-            itemListElement: displayPosts.map((post, index) => ({
-              '@type': 'ListItem',
-              position: index + 1,
-              url: `https://easybabytracker.com/posts/${post.slug}`,
-              name: post.title,
-            })),
-          },
-        })}
-      </script>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: `${title} - BabyEase`,
+            description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
+            url: `https://easybabytracker.com/${locale}/tags/${tag}`,
+            mainEntity: {
+              '@type': 'ItemList',
+              itemListElement: displayPosts.map((post, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                url: `https://easybabytracker.com/${locale}/${post.slug}`,
+                name: post.title,
+              })),
+            },
+          }),
+        }}
+      />
     </div>
   );
 }

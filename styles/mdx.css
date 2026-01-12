@@ -37,3 +37,17 @@
 .subheading-anchor {
   @apply no-underline hover:underline;
 }
+
+/* Hide the # anchor icon by default, show on hover */
+.icon-link {
+  @apply opacity-0 mr-2 text-muted-foreground transition-opacity;
+}
+
+h1:hover .icon-link,
+h2:hover .icon-link,
+h3:hover .icon-link,
+h4:hover .icon-link,
+h5:hover .icon-link,
+h6:hover .icon-link {
+  @apply opacity-100;
+}

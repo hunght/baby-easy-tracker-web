@@ -17,6 +17,9 @@ export function Tag({ tag, current, count, size = 'md' }: TagProps) {
     lg: 'px-3 py-1',
   };
 
+  // URL-encode the slug to handle Vietnamese and other non-ASCII characters
+  const tagSlug = encodeURIComponent(slug(tag));
+
   return (
     <Link
       className={cn(
@@ -27,7 +30,7 @@ export function Tag({ tag, current, count, size = 'md' }: TagProps) {
         sizeClasses[size],
         'inline-flex items-center overflow-hidden text-ellipsis whitespace-nowrap',
       )}
-      href={`/tags/${slug(tag)}`}
+      href={`/tags/${tagSlug}`}
       title={tag}
     >
       <span className="truncate">
