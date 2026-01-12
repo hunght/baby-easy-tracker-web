@@ -126,13 +126,15 @@ export default async function Home({
 
   return (
     <>
-      {/* Structured Data for SEO */}
+      {/* Structured Data for SEO - suppressHydrationWarning to avoid React 19 hydration issues */}
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <script
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
 
