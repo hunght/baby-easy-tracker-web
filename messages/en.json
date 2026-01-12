@@ -58,6 +58,73 @@
         "privacy": "Privacy",
         "blog": "Blog",
         "feedback": "Feedback",
-        "twitter": "X / Twitter"
+        "twitter": "X / Twitter",
+        "easySchedule": "E.A.S.Y. Schedule"
+    },
+    "EasySchedule": {
+        "title": "E.A.S.Y. Schedule",
+        "subtitle": "Eat, Activity, Sleep, Your Time",
+        "dashboard": {
+            "title": "Today's Schedule",
+            "noSchedule": "No schedule set up yet",
+            "setupPrompt": "Set up your baby's profile to get started",
+            "currentActivity": "Current Activity",
+            "nextUp": "Next Up",
+            "timeRemaining": "Time Remaining",
+            "completed": "Completed for today",
+            "todaysSchedule": "Today's Timeline",
+            "changeSchedule": "Change Schedule",
+            "editProfile": "Edit Profile"
+        },
+        "setup": {
+            "title": "Set Up Baby Profile",
+            "step1": "Baby Info",
+            "step2": "Choose Schedule",
+            "babyName": "Baby's Name",
+            "babyNamePlaceholder": "Enter baby's name",
+            "birthDate": "Date of Birth",
+            "wakeTime": "Desired Wake Time",
+            "wakeTimeHelp": "When does your baby usually wake up?",
+            "ageWeeks": "weeks old",
+            "next": "Next",
+            "back": "Back",
+            "finish": "Start Using Schedule",
+            "recommended": "Recommended for your baby",
+            "basedOnAge": "Based on {age} weeks old"
+        },
+        "library": {
+            "title": "Schedule Library",
+            "subtitle": "Browse all available schedules",
+            "recommended": "Recommended",
+            "all": "All Schedules",
+            "byAge": "By Age",
+            "goldStandard": "Gold Standard",
+            "napCount": "{count} naps",
+            "sleepTarget": "{min}-{max}h sleep",
+            "wakeWindows": "Wake Windows",
+            "useThisSchedule": "Use This Schedule",
+            "currentlyUsing": "Currently Using",
+            "viewDetails": "View Details",
+            "ageRange": "{min}-{max} weeks",
+            "scheduleDetails": "Schedule Details",
+            "activities": "Activities",
+            "totalSleep": "Total Sleep",
+            "totalAwake": "Total Awake Time"
+        },
+        "activities": {
+            "eat": "Eat",
+            "activity": "Activity",
+            "sleep": "Sleep",
+            "yourTime": "Your Time",
+            "eatDescription": "Feeding time",
+            "activityDescription": "Play and stimulation",
+            "sleepDescription": "Rest and nap time",
+            "yourTimeDescription": "Time for yourself"
+        },
+        "time": {
+            "hours": "{count}h",
+            "minutes": "{count}m",
+            "hoursMinutes": "{hours}h {minutes}m"
+        }
     }
 }

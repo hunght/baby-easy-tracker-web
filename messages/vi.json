@@ -58,6 +58,73 @@
         "privacy": "Riêng tư",
         "blog": "Blog",
         "feedback": "Góp ý",
-        "twitter": "X / Twitter"
+        "twitter": "X / Twitter",
+        "easySchedule": "Lịch trình E.A.S.Y"
+    },
+    "EasySchedule": {
+        "title": "Lịch trình E.A.S.Y",
+        "subtitle": "Ăn, Hoạt động, Ngủ, Thời gian của bạn",
+        "dashboard": {
+            "title": "Lịch trình hôm nay",
+            "noSchedule": "Chưa thiết lập lịch trình",
+            "setupPrompt": "Thiết lập hồ sơ bé để bắt đầu",
+            "currentActivity": "Hoạt động hiện tại",
+            "nextUp": "Tiếp theo",
+            "timeRemaining": "Thời gian còn lại",
+            "completed": "Hoàn thành cho hôm nay",
+            "todaysSchedule": "Lịch trình hôm nay",
+            "changeSchedule": "Đổi lịch trình",
+            "editProfile": "Sửa hồ sơ"
+        },
+        "setup": {
+            "title": "Thiết lập hồ sơ bé",
+            "step1": "Thông tin bé",
+            "step2": "Chọn lịch trình",
+            "babyName": "Tên bé",
+            "babyNamePlaceholder": "Nhập tên bé",
+            "birthDate": "Ngày sinh",
+            "wakeTime": "Giờ thức dậy",
+            "wakeTimeHelp": "Bé thường thức dậy lúc mấy giờ?",
+            "ageWeeks": "tuần tuổi",
+            "next": "Tiếp theo",
+            "back": "Quay lại",
+            "finish": "Bắt đầu sử dụng",
+            "recommended": "Đề xuất cho bé của bạn",
+            "basedOnAge": "Dựa trên {age} tuần tuổi"
+        },
+        "library": {
+            "title": "Thư viện lịch trình",
+            "subtitle": "Duyệt tất cả các lịch trình có sẵn",
+            "recommended": "Đề xuất",
+            "all": "Tất cả",
+            "byAge": "Theo tuổi",
+            "goldStandard": "Tiêu chuẩn vàng",
+            "napCount": "{count} giấc ngủ",
+            "sleepTarget": "{min}-{max}h ngủ",
+            "wakeWindows": "Thời gian thức",
+            "useThisSchedule": "Sử dụng lịch trình này",
+            "currentlyUsing": "Đang sử dụng",
+            "viewDetails": "Xem chi tiết",
+            "ageRange": "{min}-{max} tuần",
+            "scheduleDetails": "Chi tiết lịch trình",
+            "activities": "Hoạt động",
+            "totalSleep": "Tổng giấc ngủ",
+            "totalAwake": "Tổng thời gian thức"
+        },
+        "activities": {
+            "eat": "Ăn",
+            "activity": "Hoạt động",
+            "sleep": "Ngủ",
+            "yourTime": "Thời gian của bạn",
+            "eatDescription": "Giờ bú/ăn",
+            "activityDescription": "Chơi và kích thích",
+            "sleepDescription": "Nghỉ ngơi và ngủ",
+            "yourTimeDescription": "Thời gian cho bạn"
+        },
+        "time": {
+            "hours": "{count}h",
+            "minutes": "{count}m",
+            "hoursMinutes": "{hours}h {minutes}m"
+        }
     }
 }

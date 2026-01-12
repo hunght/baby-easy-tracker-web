@@ -35,6 +35,12 @@ export function SiteHeader({ isLoginPage = false }: SiteHeaderProps) {
         <div className="flex items-center space-x-4">
           <nav className="hidden items-center space-x-6 md:flex">
             <Link
+              href="/easy-schedule"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {t('easySchedule')}
+            </Link>
+            <Link
               href="/blog"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
