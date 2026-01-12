@@ -17,6 +17,7 @@ import { Callout } from '@/components/callout';
 interface PostPageProps {
   params: Promise<{
     slug: string[];
+    locale: string;
   }>;
 }
 
@@ -47,15 +48,36 @@ export async function generateMetadata({
   const imageUrl =
     post.thumbnail || `${siteConfig.url}/api/og?${ogSearchParams.toString()}`;
 
+  // Build hreflang alternates for SEO
+  const languages: Record<string, string> = {};
+  const currentLocale = post.locale || 'en';
+
+  // Add self-reference
+  languages[currentLocale] = `${siteConfig.url}/${currentLocale}/${post.slug}`;
+
+  // Add alternates
+  if (post.alternates) {
+    for (const [lang, altSlug] of Object.entries(post.alternates)) {
+      languages[lang] = `${siteConfig.url}/${lang}/blog/${altSlug}`;
+    }
+  }
+
+  // Add x-default pointing to English version
+  languages['x-default'] = languages['en'] || `${siteConfig.url}/en/${post.slug}`;
+
   return {
     title: `${post.title} | ${siteConfig.name}`,
     description: post.description,
     authors: { name: siteConfig.author },
+    alternates: {
+      canonical: `${siteConfig.url}/${currentLocale}/${post.slug}`,
+      languages,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
-      url: `${siteConfig.url}/${post.slug}`,
+      url: `${siteConfig.url}/${currentLocale}/${post.slug}`,
       publishedTime: post.date,
       modifiedTime: post.date,
       images: [
@@ -66,6 +88,7 @@ export async function generateMetadata({
           alt: post.thumbnail_alt_text || post.title,
         },
       ],
+      locale: currentLocale,
     },
     twitter: {
       card: 'summary_large_image',
@@ -81,8 +104,13 @@ export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return posts.map((post) => ({ slug: post.slugAsParams.split('/') }));
 }
 
+const LANGUAGE_NAMES: Record<string, string> = {
+  en: 'English',
+  vi: 'Tiếng Việt',
+};
+
 export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const post = await getPostFromParams(slug);
 
   if (!post || !post.published) {
@@ -92,10 +120,25 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <article className="container prose mx-auto max-w-3xl py-6 dark:prose-invert">
       <h1 className="mb-2">{post.title}</h1>
-      <div className="mb-2 flex gap-2">
+      <div className="mb-2 flex flex-wrap items-center gap-2">
         {post.tags?.map((tag) => (
           <Tag tag={tag} key={tag} />
         ))}
+        {/* Language alternates */}
+        {post.alternates && Object.keys(post.alternates).length > 0 && (
+          <>
+            <span className="text-muted-foreground">|</span>
+            {Object.entries(post.alternates).map(([lang, altSlug]) => (
+              <a
+                key={lang}
+                href={`/${lang}/blog/${altSlug}`}
+                className="text-sm text-primary hover:underline no-underline"
+              >
+                {LANGUAGE_NAMES[lang] || lang.toUpperCase()}
+              </a>
+            ))}
+          </>
+        )}
       </div>
       {post.description && (
         <p className="mt-0 text-xl text-muted-foreground">{post.description}</p>

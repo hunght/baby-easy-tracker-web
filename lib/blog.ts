@@ -15,6 +15,8 @@ export interface Post {
   thumbnail?: string;
   thumbnail_alt_text?: string;
   content: string;
+  locale?: string;
+  alternates?: Record<string, string>; // { en: 'slug-en', vi: 'slug-vi' }
 }
 
 export function getPostSlugs(): string[] {
@@ -46,6 +48,8 @@ export function getPostBySlug(slug: string): Post | null {
     thumbnail: data.thumbnail,
     thumbnail_alt_text: data.thumbnail_alt_text,
     content,
+    locale: data.locale,
+    alternates: data.alternates,
   };
 }
 
