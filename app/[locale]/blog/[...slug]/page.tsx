@@ -1,5 +1,5 @@
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { formatDate } from '@/lib/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
@@ -115,6 +115,12 @@ export default async function PostPage({ params }: PostPageProps) {
 
   if (!post || !post.published) {
     notFound();
+  }
+
+  // Redirect if URL locale doesn't match post locale
+  const postLocale = post.locale || 'en';
+  if (locale !== postLocale) {
+    redirect(`/${postLocale}/${post.slug}`);
   }
 
   return (
