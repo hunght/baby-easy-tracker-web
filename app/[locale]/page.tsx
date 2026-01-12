@@ -1,7 +1,5 @@
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
-import { JsonLd } from 'react-schemaorg';
-import { WebSite, SoftwareApplication } from 'schema-dts';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -103,33 +101,39 @@ export default async function Home({
     },
   ];
 
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'BabyEase',
+    url: 'https://babyease.app',
+    description: t('description'),
+    inLanguage: locale === 'vi' ? 'vi-VN' : 'en-US',
+  };
+
+  const appSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'BabyEase',
+    applicationCategory: 'LifestyleApplication',
+    operatingSystem: 'iOS, Android',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    downloadUrl: 'https://babyease.app/download',
+  };
+
   return (
     <>
       {/* Structured Data for SEO */}
-      <JsonLd<WebSite>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: 'BabyEase',
-          url: 'https://babyease.app',
-          description: t('description'),
-          inLanguage: locale === 'vi' ? 'vi-VN' : 'en-US',
-        }}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-      <JsonLd<SoftwareApplication>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'SoftwareApplication',
-          name: 'BabyEase',
-          applicationCategory: 'LifestyleApplication',
-          operatingSystem: 'iOS, Android',
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD',
-          },
-          downloadUrl: 'https://babyease.app/download',
-        }}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
 
       <div className="min-h-dvh flex flex-col bg-gradient-to-b from-[#5B7FFF]/5 via-white to-[#FF8AB8]/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
