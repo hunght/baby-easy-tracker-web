@@ -8,6 +8,8 @@ import { generateDailySchedule, getCurrentActivity, calculateAgeInWeeks, formatA
 import { SCHEDULES } from '@/data/easy-schedules';
 import { ActivityCard } from '@/components/easy-schedule/ActivityCard';
 import { Timeline } from '@/components/easy-schedule/Timeline';
+import { LeapCard } from '@/components/easy-schedule/LeapCard';
+import { getLeapStatus, calculateWeeksFromBirth } from '@/data/wonder-weeks';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -154,6 +156,10 @@ export default function EasyScheduleDashboard() {
   const currentActivity = getCurrentActivity(dailySchedule, currentTime);
   const ageWeeks = calculateAgeInWeeks(new Date(baby.birthDate));
 
+  // Calculate Wonder Weeks leap status
+  const weeksFromBirth = calculateWeeksFromBirth(new Date(baby.birthDate));
+  const leapStatus = getLeapStatus(weeksFromBirth);
+
   // Analyze adjustments for warnings/suggestions
   const warnings = hasAdjustments
     ? analyzeScheduleAdjustments(baseSchedule, dailySchedule, adjustments, ageWeeks)
@@ -202,6 +208,11 @@ export default function EasyScheduleDashboard() {
           locale={locale}
         />
       )}
+
+      {/* Wonder Weeks Leap Card */}
+      <div className="mb-4">
+        <LeapCard leapStatus={leapStatus} />
+      </div>
 
       {/* Schedule Adjustment Status */}
       {hasAdjustments && (

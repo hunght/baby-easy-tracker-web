@@ -126,5 +126,27 @@
             "minutes": "{count}m",
             "hoursMinutes": "{hours}h {minutes}m"
         }
+    },
+    "WonderWeeks": {
+        "title": "Wonder Weeks",
+        "leap": "Leap",
+        "phases": {
+            "stormy": "Stormy Phase",
+            "sunny": "Sunny Phase",
+            "calm": "Calm Period"
+        },
+        "progress": "Leap Progress",
+        "stormyPhase": "Fussy period - your baby needs extra comfort",
+        "sunnyPhase": "New skills emerging! Watch for milestones",
+        "upcomingLeap": "Upcoming Leap",
+        "daysUntilLeap": "Approximately {days} days until next leap",
+        "noUpcomingLeaps": "All 10 mental leaps completed! Your baby has grown so much.",
+        "symptoms": "What You May Notice",
+        "sleepImpact": "Sleep Impact",
+        "sunnySide": "New Skills Emerging",
+        "tips": "How to Help",
+        "showMore": "Show Details",
+        "showLess": "Hide Details",
+        "readMore": "Read Full Wonder Weeks Guide"
     }
 }

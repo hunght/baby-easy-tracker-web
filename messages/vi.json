@@ -126,5 +126,27 @@
             "minutes": "{count}m",
             "hoursMinutes": "{hours}h {minutes}m"
         }
+    },
+    "WonderWeeks": {
+        "title": "Tuần Khủng Hoảng",
+        "leap": "Bước nhảy",
+        "phases": {
+            "stormy": "Giai đoạn bão",
+            "sunny": "Giai đoạn nắng",
+            "calm": "Giai đoạn bình yên"
+        },
+        "progress": "Tiến độ bước nhảy",
+        "stormyPhase": "Giai đoạn quấy khóc - bé cần được an ủi nhiều hơn",
+        "sunnyPhase": "Kỹ năng mới đang xuất hiện! Theo dõi các mốc phát triển",
+        "upcomingLeap": "Bước nhảy sắp tới",
+        "daysUntilLeap": "Khoảng {days} ngày nữa đến bước nhảy tiếp theo",
+        "noUpcomingLeaps": "Đã hoàn thành cả 10 bước nhảy tinh thần! Bé đã lớn rất nhiều.",
+        "symptoms": "Những điều bạn có thể nhận thấy",
+        "sleepImpact": "Ảnh hưởng đến giấc ngủ",
+        "sunnySide": "Kỹ năng mới xuất hiện",
+        "tips": "Cách giúp bé",
+        "showMore": "Xem chi tiết",
+        "showLess": "Ẩn chi tiết",
+        "readMore": "Đọc hướng dẫn đầy đủ về Tuần Khủng Hoảng"
     }
 }
