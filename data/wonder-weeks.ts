@@ -477,3 +477,41 @@ export function calculateWeeksFromBirth(birthDate: Date): number {
   const diffDays = diffTime / (1000 * 60 * 60 * 24);
   return diffDays / 7;
 }
+
+/**
+ * Calculate weeks for Wonder Weeks, accounting for:
+ * - Due date (for premature/late babies)
+ * - Manual offset adjustment (for individual variation)
+ *
+ * @param birthDate - Baby's actual birth date
+ * @param dueDate - Optional due date (if different from birth date)
+ * @param offsetDays - Manual adjustment in days (+/- for babies ahead/behind schedule)
+ */
+export function calculateWonderWeeksAge(
+  birthDate: Date,
+  dueDate?: Date | null,
+  offsetDays: number = 0
+): number {
+  const now = new Date();
+
+  // Use due date if provided, otherwise use birth date
+  const referenceDate = dueDate || birthDate;
+
+  const diffTime = now.getTime() - referenceDate.getTime();
+  const diffDays = diffTime / (1000 * 60 * 60 * 24);
+
+  // Apply manual offset (positive = baby is ahead, negative = baby is behind)
+  const adjustedDays = diffDays + offsetDays;
+
+  return adjustedDays / 7;
+}
+
+/**
+ * Calculate how many weeks premature or late a baby was
+ * Positive = born early (premature), Negative = born late (overdue)
+ */
+export function calculatePrematureWeeks(birthDate: Date, dueDate: Date): number {
+  const diffTime = dueDate.getTime() - birthDate.getTime();
+  const diffDays = diffTime / (1000 * 60 * 60 * 24);
+  return diffDays / 7;
+}

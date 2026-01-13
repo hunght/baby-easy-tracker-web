@@ -90,7 +90,9 @@ export interface AgeScheduleRecommendation {
 export interface BabyProfile {
   name: string;
   birthDate: string; // ISO date string
+  dueDate?: string; // ISO date string - for premature/late babies, used for Wonder Weeks calculation
   wakeTime: string; // HH:MM format
+  wonderWeeksOffset?: number; // Adjustment in days (+/-) if baby's leaps don't match standard timing
 }
 
 export interface EasyAppData {

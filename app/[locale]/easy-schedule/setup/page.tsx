@@ -20,7 +20,9 @@ import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
-import { CalendarIcon, Baby, Clock, Sparkles, ArrowRight, Check } from 'lucide-react';
+import { CalendarIcon, Baby, Clock, Sparkles, ArrowRight, Check, Info } from 'lucide-react';
+import { calculatePrematureWeeks } from '@/data/wonder-weeks';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 export default function SetupPage() {
   const router = useRouter();
@@ -30,16 +32,27 @@ export default function SetupPage() {
   // Form state
   const [name, setName] = useState('');
   const [birthDate, setBirthDate] = useState<Date | undefined>(undefined);
+  const [dueDate, setDueDate] = useState<Date | undefined>(undefined);
   const [wakeTime, setWakeTime] = useState('07:00');
+  const [wonderWeeksOffset, setWonderWeeksOffset] = useState(0);
   const [selectedSchedule, setSelectedSchedule] = useState<ScheduleType | null>(null);
   const [step, setStep] = useState(1);
+  const [showAdvanced, setShowAdvanced] = useState(false);
 
   // Load existing data
   useEffect(() => {
     if (isLoaded && baby) {
       setName(baby.name);
       setBirthDate(new Date(baby.birthDate));
+      if (baby.dueDate) {
+        setDueDate(new Date(baby.dueDate));
+        setShowAdvanced(true);
+      }
       setWakeTime(baby.wakeTime);
+      if (baby.wonderWeeksOffset !== undefined) {
+        setWonderWeeksOffset(baby.wonderWeeksOffset);
+        setShowAdvanced(true);
+      }
     }
     if (isLoaded && currentSchedule) {
       setSelectedSchedule(currentSchedule);
@@ -63,12 +76,17 @@ export default function SetupPage() {
     setBabyProfile({
       name,
       birthDate: birthDate.toISOString(),
+      dueDate: dueDate ? dueDate.toISOString() : undefined,
       wakeTime,
+      wonderWeeksOffset: wonderWeeksOffset !== 0 ? wonderWeeksOffset : undefined,
     });
     setCurrentSchedule(selectedSchedule);
 
     router.push(`/${locale}/easy-schedule`);
   };
+
+  // Calculate premature/late weeks if both dates are set
+  const prematureWeeks = birthDate && dueDate ? calculatePrematureWeeks(birthDate, dueDate) : 0;
 
   const canProceedStep1 = name.trim().length > 0 && birthDate !== undefined;
   const canProceedStep2 = selectedSchedule !== null;
@@ -187,6 +205,123 @@ export default function SetupPage() {
                   : 'When your baby typically wakes up'}
               </p>
             </div>
+
+            {/* Advanced Settings - Due Date & Wonder Weeks */}
+            <Collapsible open={showAdvanced} onOpenChange={setShowAdvanced}>
+              <CollapsibleTrigger asChild>
+                <Button variant="ghost" className="w-full justify-between text-muted-foreground">
+                  <span className="flex items-center gap-2">
+                    <Info className="h-4 w-4" />
+                    {locale === 'vi' ? 'Cài đặt Wonder Weeks' : 'Wonder Weeks Settings'}
+                  </span>
+                  <span className="text-xs">
+                    {showAdvanced
+                      ? (locale === 'vi' ? 'Ẩn' : 'Hide')
+                      : (locale === 'vi' ? 'Hiện' : 'Show')}
+                  </span>
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="space-y-4 pt-2">
+                {/* Due Date */}
+                <div className="space-y-2 rounded-lg bg-muted/50 p-3">
+                  <Label>
+                    {locale === 'vi' ? 'Ngày dự sinh' : 'Due Date'}
+                    <span className="ml-1 text-xs text-muted-foreground">
+                      ({locale === 'vi' ? 'tùy chọn' : 'optional'})
+                    </span>
+                  </Label>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          'w-full justify-start text-left font-normal',
+                          !dueDate && 'text-muted-foreground'
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {dueDate ? (
+                          format(dueDate, 'PPP')
+                        ) : (
+                          <span>{locale === 'vi' ? 'Chọn ngày dự sinh' : 'Pick due date'}</span>
+                        )}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={dueDate}
+                        onSelect={setDueDate}
+                        disabled={(date) => date > new Date() || date < new Date('2020-01-01')}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <p className="text-xs text-muted-foreground">
+                    {locale === 'vi'
+                      ? 'Dùng cho bé sinh non/muộn. Wonder Weeks tính từ ngày dự sinh, không phải ngày sinh thật.'
+                      : 'For premature/late babies. Wonder Weeks are calculated from due date, not birth date.'}
+                  </p>
+                  {birthDate && dueDate && prematureWeeks !== 0 && (
+                    <Badge variant={prematureWeeks > 0 ? 'secondary' : 'outline'} className="mt-1">
+                      {prematureWeeks > 0
+                        ? (locale === 'vi'
+                          ? `Sinh sớm ${Math.abs(prematureWeeks).toFixed(1)} tuần`
+                          : `Born ${Math.abs(prematureWeeks).toFixed(1)} weeks early`)
+                        : (locale === 'vi'
+                          ? `Sinh muộn ${Math.abs(prematureWeeks).toFixed(1)} tuần`
+                          : `Born ${Math.abs(prematureWeeks).toFixed(1)} weeks late`)}
+                    </Badge>
+                  )}
+                  {dueDate && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-xs"
+                      onClick={() => setDueDate(undefined)}
+                    >
+                      {locale === 'vi' ? 'Xóa ngày dự sinh' : 'Clear due date'}
+                    </Button>
+                  )}
+                </div>
+
+                {/* Wonder Weeks Offset */}
+                <div className="space-y-2 rounded-lg bg-muted/50 p-3">
+                  <Label htmlFor="offset">
+                    {locale === 'vi' ? 'Điều chỉnh Wonder Weeks' : 'Wonder Weeks Adjustment'}
+                  </Label>
+                  <div className="flex items-center gap-2">
+                    <Input
+                      id="offset"
+                      type="number"
+                      value={wonderWeeksOffset}
+                      onChange={(e) => setWonderWeeksOffset(parseInt(e.target.value) || 0)}
+                      className="w-24"
+                      min={-14}
+                      max={14}
+                    />
+                    <span className="text-sm text-muted-foreground">
+                      {locale === 'vi' ? 'ngày' : 'days'}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    {locale === 'vi'
+                      ? 'Điều chỉnh nếu bé có vẻ trải qua các bước nhảy sớm hơn (+) hoặc muộn hơn (-) so với tiêu chuẩn.'
+                      : 'Adjust if your baby seems to hit leaps earlier (+) or later (-) than the standard timing.'}
+                  </p>
+                  {wonderWeeksOffset !== 0 && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-xs"
+                      onClick={() => setWonderWeeksOffset(0)}
+                    >
+                      {locale === 'vi' ? 'Đặt lại về 0' : 'Reset to 0'}
+                    </Button>
+                  )}
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
 
             <Button
               className="w-full"
