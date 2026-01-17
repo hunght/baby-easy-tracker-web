@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 import { DownloadNowButton } from './download-now-button';
 import { MobileNav } from './mobile-nav';
@@ -13,6 +13,7 @@ interface SiteHeaderProps {
 
 export function SiteHeader({ isLoginPage = false }: SiteHeaderProps) {
   const t = useTranslations('Navigation');
+  const locale = useLocale();
 
   return (
     <header className="sticky top-0 z-10 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -40,6 +41,14 @@ export function SiteHeader({ isLoginPage = false }: SiteHeaderProps) {
             >
               {t('easySchedule')}
             </Link>
+            {locale === 'vi' && (
+              <Link
+                href="/lich-tiem-chung"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {t('vaccination')}
+              </Link>
+            )}
             <Link
               href="/blog"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"

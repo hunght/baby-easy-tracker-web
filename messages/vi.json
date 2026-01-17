@@ -59,7 +59,8 @@
         "blog": "Blog",
         "feedback": "Góp ý",
         "twitter": "X / Twitter",
-        "easySchedule": "Lịch trình E.A.S.Y"
+        "easySchedule": "Lịch trình E.A.S.Y",
+        "vaccination": "Lịch tiêm chủng"
     },
     "EasySchedule": {
         "title": "Lịch trình E.A.S.Y",
