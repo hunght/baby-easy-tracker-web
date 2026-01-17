@@ -10,7 +10,8 @@ import { VaccinationSetup } from '@/components/vaccinations/VaccinationSetup';
 export default function VaccinationTrackerPage() {
   const router = useRouter();
   const locale = useLocale();
-  const { isLoaded, isSetupComplete } = useVaccinationStorage();
+  const vaccinationStorage = useVaccinationStorage();
+  const { isLoaded, isSetupComplete } = vaccinationStorage;
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -43,8 +44,8 @@ export default function VaccinationTrackerPage() {
 
   // Show setup if not complete
   if (!isSetupComplete) {
-    return <VaccinationSetup />;
+    return <VaccinationSetup onAddBaby={vaccinationStorage.addBaby} />;
   }
 
-  return <VaccinationDashboard />;
+  return <VaccinationDashboard storage={vaccinationStorage} />;
 }

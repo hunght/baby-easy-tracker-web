@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useVaccinationStorage } from '@/hooks/use-vaccination-storage';
+import type { BabyProfile } from '@/data/vaccination-types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -14,8 +14,11 @@ import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
 import { CalendarIcon, Syringe, Baby, Heart } from 'lucide-react';
 
-export function VaccinationSetup() {
-  const { addBaby } = useVaccinationStorage();
+interface VaccinationSetupProps {
+  onAddBaby: (baby: Omit<BabyProfile, 'id'>) => BabyProfile;
+}
+
+export function VaccinationSetup({ onAddBaby }: VaccinationSetupProps) {
   const [name, setName] = useState('');
   const [birthDate, setBirthDate] = useState<Date | undefined>(undefined);
   const [gender, setGender] = useState<'male' | 'female' | undefined>(undefined);
@@ -25,7 +28,7 @@ export function VaccinationSetup() {
     e.preventDefault();
     if (!name.trim() || !birthDate) return;
 
-    addBaby({
+    onAddBaby({
       name: name.trim(),
       birthDate: birthDate.getTime(),
       gender,

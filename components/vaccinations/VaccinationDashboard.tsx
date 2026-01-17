@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useVaccinationStorage } from '@/hooks/use-vaccination-storage';
+import type { useVaccinationStorage } from '@/hooks/use-vaccination-storage';
 import { VaccinationCard } from './VaccinationCard';
 import { VaccinationForm } from './VaccinationForm';
 import { formatAge, calculateAgeInDays, formatRecommendedAge } from '@/data/vaccination-types';
@@ -28,7 +28,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
-import { cn } from '@/lib/utils';
 import {
   Baby,
   Syringe,
@@ -40,11 +39,14 @@ import {
   Calendar,
   Trash2,
 } from 'lucide-react';
-import Link from 'next/link';
 
 type AgeStage = 'all' | 'newborn' | '2-6' | '6-12' | '12-24' | '24+';
 
-export function VaccinationDashboard() {
+interface VaccinationDashboardProps {
+  storage: ReturnType<typeof useVaccinationStorage>;
+}
+
+export function VaccinationDashboard({ storage }: VaccinationDashboardProps) {
   const {
     activeBaby,
     vaccinationSchedule,
@@ -54,7 +56,7 @@ export function VaccinationDashboard() {
     markVaccinationCompleted,
     markVaccinationSkipped,
     clearData,
-  } = useVaccinationStorage();
+  } = storage;
 
   const [selectedDose, setSelectedDose] = useState<string | null>(null);
   const [formOpen, setFormOpen] = useState(false);
