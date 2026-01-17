@@ -125,20 +125,18 @@ export default async function Home({
   };
 
   return (
-    <>
-      {/* Structured Data for SEO - suppressHydrationWarning to avoid React 19 hydration issues */}
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
-      />
-
       <div className="min-h-dvh flex flex-col bg-gradient-to-b from-[#5B7FFF]/5 via-white to-[#FF8AB8]/5 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        {/* Structured Data for SEO */}
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
+        />
         <SiteHeader />
 
         <main className="flex-1">
@@ -317,6 +315,5 @@ export default async function Home({
 
         <SiteFooter />
       </div>
-    </>
   );
 }
