@@ -2,7 +2,7 @@
 
 import { PostHogProvider as Provider } from 'posthog-js/react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect, Suspense } from 'react';
+import { useEffect, Suspense, useState } from 'react';
 import posthogClient, { identifyUser, UserProperties } from '@/lib/posthog';
 
 function PostHogPageTracker() {
@@ -25,8 +25,14 @@ function PostHogPageTracker() {
 }
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  // Only render the PostHog provider if the client is initialized
-  if (!posthogClient) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Don't render PostHog provider on server or if client not initialized
+  if (!mounted || !posthogClient) {
     return <>{children}</>;
   }
 
