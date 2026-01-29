@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Button } from './ui/button';
 import { Menu, Home, BookOpen, MessageSquare, Tag, Calendar, Syringe } from 'lucide-react';
@@ -25,8 +25,23 @@ const vietnameseOnlyLinks = [
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const locale = useLocale();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <Button variant="ghost" size="icon" className="md:hidden">
+        <Menu className="h-5 w-5" />
+        <span className="sr-only">Toggle menu</span>
+      </Button>
+    );
+  }
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>

@@ -26,6 +26,7 @@ import {
 } from '@/components/ui/dialog';
 import { Settings, Library, Baby, Clock, RefreshCw, AlertTriangle, Info, Lightbulb, Trash2 } from 'lucide-react';
 import Link from 'next/link';
+import { DownloadCtaBanner } from '@/components/download-cta-banner';
 
 export default function EasyScheduleDashboard() {
   const router = useRouter();
@@ -469,6 +470,9 @@ export default function EasyScheduleDashboard() {
           </Card>
         </Link>
       </div>
+
+      {/* Download CTA Banner */}
+      <DownloadCtaBanner locale={locale} />
     </div>
   );
 }

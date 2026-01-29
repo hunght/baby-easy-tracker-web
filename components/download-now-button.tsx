@@ -1,6 +1,7 @@
 'use client';
 
 import { MouseEventHandler } from 'react';
+import { useTranslations } from 'next-intl';
 
 import { handleDownload } from '@/utils/handleDownload';
 import { cn } from '@/lib/utils';
@@ -21,10 +22,12 @@ interface DownloadNowButtonProps {
 
 export function DownloadNowButton({
   className,
-  children = 'Grab it now',
+  children,
   variant = 'default',
   size = 'sm',
 }: DownloadNowButtonProps) {
+  const t = useTranslations('Navigation');
+  const buttonText = children || t('grabItNow');
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
     handleDownload();
@@ -39,7 +42,7 @@ export function DownloadNowButton({
           'rounded-full bg-brand-gradient px-6 font-semibold text-white shadow-lg shadow-primary/30 transition hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary',
       )}
     >
-      {children}
+      {buttonText}
     </button>
   );
 }

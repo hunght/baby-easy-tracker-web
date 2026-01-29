@@ -4,36 +4,41 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaApple, FaGooglePlay } from 'react-icons/fa';
 import Link from 'next/link';
-import Image from 'next/image';
-import { JsonLd } from 'react-schemaorg';
-import { SoftwareApplication } from 'schema-dts';
 import { appLinks } from '@/config/app-links';
+import { useTranslations, useLocale } from 'next-intl';
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'BabyEase',
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'iOS, Android',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  downloadUrl: 'https://easybabytracker.com/download',
+  description:
+    'The lightweight baby tracking app to log feeds, sleep, diapers, and more.',
+  image: 'https://easybabytracker.com/logo-300.png',
+  author: {
+    '@type': 'Person',
+    name: 'Hung Hoang',
+  },
+};
 
 const DownloadPage = () => {
+  const t = useTranslations('Download');
+  const locale = useLocale();
+
   return (
     <>
       {/* Structured Data for SEO */}
-      <JsonLd<SoftwareApplication>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'SoftwareApplication',
-          name: 'BabyEase',
-          applicationCategory: 'LifestyleApplication',
-          operatingSystem: 'iOS, Android',
-          offers: {
-            '@type': 'Offer',
-            price: '0',
-            priceCurrency: 'USD',
-          },
-          downloadUrl: 'https://easybabytracker.com/download',
-          description:
-            'The lightweight baby tracking app to log feeds, sleep, diapers, and more.',
-          image: 'https://easybabytracker.com/logo-300.png',
-          author: {
-            '@type': 'Person',
-            name: 'Hung Hoang',
-          },
-        }}
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
       <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white p-4 dark:from-slate-900 dark:to-slate-800">
         <motion.div
@@ -43,18 +48,19 @@ const DownloadPage = () => {
           className="w-full max-w-2xl rounded-2xl bg-white p-8 shadow-xl dark:bg-slate-800 md:p-12"
         >
           <div className="mb-8 text-center">
-            <Image
-              src="/logo-300.png"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo-256.png"
               alt="BabyEase Logo"
               width={120}
               height={120}
               className="mx-auto mb-6 h-24 w-24"
             />
             <h1 className="mb-2 text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">
-              Download BabyEase
+              {t('title')}
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              The lightweight baby tracking app for busy parents
+              {t('subtitle')}
             </p>
           </div>
 
@@ -68,8 +74,8 @@ const DownloadPage = () => {
             >
               <FaApple className="text-3xl" />
               <div className="text-left">
-                <p className="text-xs">Download on the</p>
-                <p className="text-xl font-semibold">App Store</p>
+                <p className="text-xs">{t('downloadOn')}</p>
+                <p className="text-xl font-semibold">{t('appStore')}</p>
               </div>
             </a>
 
@@ -82,8 +88,8 @@ const DownloadPage = () => {
             >
               <FaGooglePlay className="text-3xl" />
               <div className="text-left">
-                <p className="text-xs">Get it on</p>
-                <p className="text-xl font-semibold">Google Play</p>
+                <p className="text-xs">{t('getItOn')}</p>
+                <p className="text-xl font-semibold">{t('playStore')}</p>
               </div>
             </a>
           </div>
@@ -91,50 +97,53 @@ const DownloadPage = () => {
           {/* Features */}
           <div className="mb-8">
             <h2 className="mb-4 text-center text-xl font-semibold text-gray-800 dark:text-white">
-              What you can track
+              {t('features')}
             </h2>
             <div className="grid grid-cols-2 gap-3 text-center md:grid-cols-4">
               <div className="rounded-lg bg-blue-50 p-3 dark:bg-slate-700">
                 <span className="text-2xl">🍼</span>
-                <p className="mt-1 text-sm font-medium">Feeding</p>
+                <p className="mt-1 text-sm font-medium">{t('feeding')}</p>
               </div>
               <div className="rounded-lg bg-purple-50 p-3 dark:bg-slate-700">
                 <span className="text-2xl">😴</span>
-                <p className="mt-1 text-sm font-medium">Sleep</p>
+                <p className="mt-1 text-sm font-medium">{t('sleep')}</p>
               </div>
               <div className="rounded-lg bg-yellow-50 p-3 dark:bg-slate-700">
                 <span className="text-2xl">👶</span>
-                <p className="mt-1 text-sm font-medium">Diapers</p>
+                <p className="mt-1 text-sm font-medium">{t('diapers')}</p>
               </div>
               <div className="rounded-lg bg-green-50 p-3 dark:bg-slate-700">
                 <span className="text-2xl">📈</span>
-                <p className="mt-1 text-sm font-medium">Growth</p>
+                <p className="mt-1 text-sm font-medium">{t('growth')}</p>
               </div>
             </div>
           </div>
 
           <div className="text-center text-gray-600 dark:text-gray-400">
             <p className="mb-4">
-              Have questions? Check our{' '}
+              {t('questions')}{' '}
               <Link
-                href="/blog"
+                href={`/${locale}/blog`}
                 className="text-blue-600 underline hover:text-blue-800 dark:text-blue-400"
               >
-                Blog
+                {t('blog')}
               </Link>{' '}
-              or{' '}
+              {t('or')}{' '}
               <Link
-                href="/feedback"
+                href={`/${locale}/feedback`}
                 className="text-blue-600 underline hover:text-blue-800 dark:text-blue-400"
               >
-                send feedback
+                {t('sendFeedback')}
               </Link>
               .
             </p>
             <p className="text-sm">
-              By downloading, you agree to our{' '}
-              <Link href="/privacy" className="text-blue-600 hover:underline dark:text-blue-400">
-                Privacy Policy
+              {t('privacyNote')}{' '}
+              <Link
+                href={`/${locale}/privacy`}
+                className="text-blue-600 hover:underline dark:text-blue-400"
+              >
+                {t('privacyPolicy')}
               </Link>
               .
             </p>

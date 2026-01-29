@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import {
@@ -15,11 +16,25 @@ export function LocaleSwitcher() {
     const locale = useLocale();
     const router = useRouter();
     const pathname = usePathname();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const handleLocaleChange = (newLocale: string) => {
         const newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
         router.push(newPathname === '' ? `/${newLocale}` : newPathname);
     };
+
+    // Prevent hydration mismatch by not rendering until mounted
+    if (!mounted) {
+        return (
+            <Button variant="ghost" size="icon" aria-label="Switch language">
+                <Languages className="h-[1.2rem] w-[1.2rem]" />
+            </Button>
+        );
+    }
 
     return (
         <DropdownMenu>

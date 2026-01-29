@@ -23,6 +23,7 @@ import { format } from 'date-fns';
 import { CalendarIcon, Baby, Clock, Sparkles, ArrowRight, Check, Info } from 'lucide-react';
 import { calculatePrematureWeeks } from '@/data/wonder-weeks';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { DownloadCtaBanner } from '@/components/download-cta-banner';
 
 export default function SetupPage() {
   const router = useRouter();
@@ -450,6 +451,9 @@ export default function SetupPage() {
           </CardContent>
         </Card>
       )}
+
+      {/* Download CTA Banner */}
+      <DownloadCtaBanner locale={locale} />
     </div>
   );
 }

@@ -59,7 +59,9 @@
         "blog": "Blog",
         "feedback": "Feedback",
         "twitter": "X / Twitter",
-        "easySchedule": "E.A.S.Y. Schedule"
+        "easySchedule": "E.A.S.Y. Schedule",
+        "vaccination": "Vaccination Schedule",
+        "grabItNow": "Grab it now"
     },
     "EasySchedule": {
         "title": "E.A.S.Y. Schedule",
@@ -126,6 +128,25 @@
             "minutes": "{count}m",
             "hoursMinutes": "{hours}h {minutes}m"
         }
+    },
+    "Download": {
+        "title": "Download BabyEase",
+        "subtitle": "The lightweight baby tracking app for busy parents",
+        "appStore": "App Store",
+        "playStore": "Google Play",
+        "downloadOn": "Download on the",
+        "getItOn": "Get it on",
+        "features": "What you can track",
+        "feeding": "Feeding",
+        "sleep": "Sleep",
+        "diapers": "Diapers",
+        "growth": "Growth",
+        "questions": "Have questions? Check our",
+        "blog": "Blog",
+        "or": "or",
+        "sendFeedback": "send feedback",
+        "privacyNote": "By downloading, you agree to our",
+        "privacyPolicy": "Privacy Policy"
     },
     "WonderWeeks": {
         "title": "Wonder Weeks",

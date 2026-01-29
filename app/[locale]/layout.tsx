@@ -40,7 +40,8 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  const messages = await getMessages();
+  // Explicitly pass locale to getMessages to ensure correct language is loaded
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale} className="scroll-pt-[3.5rem]" suppressHydrationWarning>

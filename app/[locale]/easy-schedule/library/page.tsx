@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { DownloadCtaBanner } from '@/components/download-cta-banner';
 
 export default function LibraryPage() {
   const locale = useLocale() as 'en' | 'vi';
@@ -138,6 +139,9 @@ export default function LibraryPage() {
           ))}
         </TabsContent>
       </Tabs>
+
+      {/* Download CTA Banner */}
+      <DownloadCtaBanner locale={locale} />
     </div>
   );
 }

@@ -60,7 +60,8 @@
         "feedback": "Góp ý",
         "twitter": "X / Twitter",
         "easySchedule": "Lịch trình E.A.S.Y",
-        "vaccination": "Lịch tiêm chủng"
+        "vaccination": "Lịch tiêm chủng",
+        "grabItNow": "Tải ngay"
     },
     "EasySchedule": {
         "title": "Lịch trình E.A.S.Y",
@@ -127,6 +128,25 @@
             "minutes": "{count}m",
             "hoursMinutes": "{hours}h {minutes}m"
         }
+    },
+    "Download": {
+        "title": "Tải BabyEase",
+        "subtitle": "Ứng dụng theo dõi bé nhẹ nhàng cho ba mẹ bận rộn",
+        "appStore": "App Store",
+        "playStore": "Google Play",
+        "downloadOn": "Tải về trên",
+        "getItOn": "Tải về trên",
+        "features": "Bạn có thể theo dõi",
+        "feeding": "Cho ăn",
+        "sleep": "Giấc ngủ",
+        "diapers": "Thay tã",
+        "growth": "Phát triển",
+        "questions": "Có câu hỏi? Xem",
+        "blog": "Blog",
+        "or": "hoặc",
+        "sendFeedback": "gửi góp ý",
+        "privacyNote": "Khi tải xuống, bạn đồng ý với",
+        "privacyPolicy": "Chính sách bảo mật"
     },
     "WonderWeeks": {
         "title": "Tuần Khủng Hoảng",
