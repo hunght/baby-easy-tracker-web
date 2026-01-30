@@ -36,9 +36,17 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = () => {
-  const posts = getAllPosts();
-  const tags = getAllTags(posts);
-  const paths = Object.keys(tags).map((tag) => ({ tag: slug(tag) }));
+  const locales = ['en', 'vi'];
+  const paths: { locale: string; tag: string }[] = [];
+
+  for (const locale of locales) {
+    const posts = getAllPosts(locale);
+    const tags = getAllTags(posts);
+    Object.keys(tags).forEach((tag) => {
+      paths.push({ locale, tag: slug(tag) });
+    });
+  }
+
   return paths;
 };
 
