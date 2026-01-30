@@ -248,6 +248,22 @@ export default async function Home({
             </div>
           </section>
 
+          {/* App Features Showcase - Vietnamese only */}
+          {locale === 'vi' && (
+            <section className="py-16">
+              <div className="container mx-auto px-4">
+                <Image
+                  src="/features-showcase-vi.png"
+                  alt="Các tính năng chính của BabyEase"
+                  width={1920}
+                  height={1080}
+                  className="w-full rounded-2xl"
+                  priority
+                />
+              </div>
+            </section>
+          )}
+
           {/* App Screenshots */}
           <section className="py-16">
             <div className="container mx-auto px-4">
