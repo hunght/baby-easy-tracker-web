@@ -22,7 +22,9 @@ interface PostPageProps {
 }
 
 const components = {
-  Image: (props: ImageProps) => <Image {...props} />,
+  Image: ({ alt, ...props }: ImageProps) => (
+    <Image alt={alt || ''} {...props} />
+  ),
   Callout,
 };
 
