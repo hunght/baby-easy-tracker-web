@@ -182,21 +182,24 @@ export default async function Home({
 
                 {/* Right - Phone Mockup / Video Demo */}
                 <div className="relative md:w-1/2">
-                  <div className="relative mx-auto max-w-xs">
-                    {/* Phone frame effect */}
-                    <div className="absolute inset-0 -rotate-3 rounded-[3rem] bg-gradient-to-br from-[#5B7FFF] to-[#FF8AB8] opacity-20 blur-2xl" />
-                    <div className="relative rotate-3 transform transition-transform hover:rotate-0">
-                      <div className="overflow-hidden rounded-[2.5rem] border-8 border-slate-800 bg-slate-800 shadow-2xl dark:border-slate-700">
-                        {locale === 'vi' ? (
-                          <video
-                            src="/demo-vi.mp4"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-full"
-                          />
-                        ) : (
+                  {locale === 'vi' ? (
+                    // Video demo for Vietnamese - no frame needed
+                    <div className="relative mx-auto max-w-sm">
+                      <video
+                        src="/demo-vi.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full rounded-2xl shadow-2xl"
+                      />
+                    </div>
+                  ) : (
+                    // Phone mockup for other languages
+                    <div className="relative mx-auto max-w-xs">
+                      <div className="absolute inset-0 -rotate-3 rounded-[3rem] bg-gradient-to-br from-[#5B7FFF] to-[#FF8AB8] opacity-20 blur-2xl" />
+                      <div className="relative rotate-3 transform transition-transform hover:rotate-0">
+                        <div className="overflow-hidden rounded-[2.5rem] border-8 border-slate-800 bg-slate-800 shadow-2xl dark:border-slate-700">
                           <Image
                             src="/screenshots/01-tracking.png"
                             alt="BabyEase app showing activity tracking"
@@ -205,10 +208,10 @@ export default async function Home({
                             priority
                             className="w-full"
                           />
-                        )}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
