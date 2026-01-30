@@ -184,14 +184,14 @@ export default async function Home({
                 <div className="relative md:w-1/2">
                   {locale === 'vi' ? (
                     // Video demo for Vietnamese - no frame needed
-                    <div className="relative mx-auto max-w-sm">
+                    <div className="relative mx-auto max-w-sm rounded-2xl bg-black shadow-2xl overflow-hidden">
                       <video
                         src="/demo-vi.mp4"
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full rounded-2xl shadow-2xl"
+                        className="w-full"
                       />
                     </div>
                   ) : (
