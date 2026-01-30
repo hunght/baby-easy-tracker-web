@@ -101,9 +101,23 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
-  const posts = getAllPosts();
-  return posts.map((post) => ({ slug: post.slugAsParams.split('/') }));
+export async function generateStaticParams(): Promise<
+  { locale: string; slug: string[] }[]
+> {
+  const locales = ['en', 'vi'];
+  const paths: { locale: string; slug: string[] }[] = [];
+
+  for (const locale of locales) {
+    const posts = getAllPosts(locale);
+    posts.forEach((post) => {
+      paths.push({
+        locale,
+        slug: post.slugAsParams.split('/'),
+      });
+    });
+  }
+
+  return paths;
 }
 
 const LANGUAGE_NAMES: Record<string, string> = {
