@@ -8,6 +8,7 @@ import { DownloadNowButton } from './download-now-button';
 import { MobileNav } from './mobile-nav';
 import { ModeToggle } from './mode-toggle';
 import { LocaleSwitcher } from './locale-switcher';
+import { siteConfig } from '@/config/site';
 
 interface SiteHeaderProps {
   isLoginPage?: boolean;
@@ -24,14 +25,19 @@ export function SiteHeader({ isLoginPage = false }: SiteHeaderProps) {
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/logo.svg"
-              alt="BabyEase"
+              alt={`${siteConfig.productName} by ${siteConfig.brandName}`}
               width={56}
               height={56}
               priority
               className="h-10 w-auto"
             />
-            <span className="text-lg font-semibold tracking-tight text-foreground md:text-xl">
-              BabyEase
+            <span className="flex flex-col leading-tight">
+              <span className="text-base font-semibold tracking-tight text-foreground md:text-lg">
+                {siteConfig.productName}
+              </span>
+              <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                by {siteConfig.brandName}
+              </span>
             </span>
           </Link>
         </div>

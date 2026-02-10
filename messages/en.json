@@ -1,11 +1,12 @@
 {
     "Index": {
-        "title": "BabyEase: Free Baby Tracking App for iOS & Android",
-        "description": "BabyEase: Free open-source baby tracking app. Log feeds, sleep, diapers, and more. Track your baby's daily activities with our privacy-focused mobile app for iOS and Android.",
+        "title": "Easy Baby Tracker by BabyEase: Free Baby Tracking App for iOS & Android",
+        "description": "Easy Baby Tracker by BabyEase: Log feeds, sleep, and diapers with one tap. No ads, no subscriptions. Privacy-first baby tracking for iOS and Android.",
         "hero": {
+            "brand": "Easy Baby Tracker by BabyEase",
             "titlePart1": "Track Your Baby's",
             "titlePart2": "Daily Journey",
-            "subtitle": "The simple, free baby tracking app. Log feeds, sleep, and diapers with one tap. No ads, no subscriptions.",
+            "subtitle": "Log feeds, sleep, and diapers with one tap. No ads, no subscriptions. Privacy-first.",
             "rating": "4.9 rating • Free on iOS & Android"
         },
         "features": {
@@ -44,13 +45,20 @@
             "quote": "Finally, a baby app that doesn't overwhelm me. Simple, fast, and actually useful!",
             "author": "Happy Parent"
         },
+        "community": {
+            "title": "Parent tips, short and reassuring",
+            "subtitle": "Quick, calm guidance on feeds, sleep, and diapers - focused on outcomes, not overwhelm.",
+            "ctaBlog": "Read the blog",
+            "ctaX": "Follow on X",
+            "note": "Instagram, TikTok, and YouTube Shorts coming soon."
+        },
         "cta": {
             "title": "Ready to Simplify Baby Care?",
-            "subtitle": "Join thousands of parents tracking with ease.",
+            "subtitle": "Join parents tracking with ease.",
             "features": {
-                "free": "Free forever",
+                "free": "No subscriptions",
                 "noAds": "No ads",
-                "privacy": "Privacy-focused"
+                "privacy": "Privacy-first"
             }
         }
     },
@@ -59,6 +67,7 @@
         "blog": "Blog",
         "feedback": "Feedback",
         "twitter": "X / Twitter",
+        "openSource": "Open-source",
         "easySchedule": "E.A.S.Y. Schedule",
         "vaccination": "Vaccination Schedule",
         "grabItNow": "Grab it now"
@@ -130,8 +139,8 @@
         }
     },
     "Download": {
-        "title": "Download BabyEase",
-        "subtitle": "The lightweight baby tracking app for busy parents",
+        "title": "Download Easy Baby Tracker",
+        "subtitle": "The one-tap baby tracker by BabyEase for busy parents",
         "appStore": "App Store",
         "playStore": "Google Play",
         "downloadOn": "Download on the",

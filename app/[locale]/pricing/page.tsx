@@ -3,19 +3,19 @@ import React from 'react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'BabyEase Pricing - Free Baby Tracking App',
+  title: 'Easy Baby Tracker by BabyEase Pricing - Free Baby Tracking App',
   description:
-    'BabyEase is completely free! Explore our open-source baby tracking app with no hidden fees.',
+    'Easy Baby Tracker by BabyEase is completely free. No ads, no subscriptions, and privacy-first.',
   openGraph: {
-    title: 'BabyEase Pricing - Free Baby Tracking App',
+    title: 'Easy Baby Tracker by BabyEase Pricing - Free Baby Tracking App',
     description:
-      'BabyEase is completely free! Explore our open-source baby tracking app with no hidden fees.',
+      'Easy Baby Tracker by BabyEase is completely free. No ads, no subscriptions, and privacy-first.',
     url: 'https://easybabytracker.com/pricing',
   },
   twitter: {
-    title: 'BabyEase Pricing - Free Baby Tracking App',
+    title: 'Easy Baby Tracker by BabyEase Pricing - Free Baby Tracking App',
     description:
-      'BabyEase is completely free! Explore our open-source baby tracking app with no hidden fees.',
+      'Easy Baby Tracker by BabyEase is completely free. No ads, no subscriptions, and privacy-first.',
   },
 };
 
@@ -29,8 +29,11 @@ const PricingPage: React.FC = () => {
         Just kidding, it&apos;s totally free!
       </p>
       <p className="text-center text-xl font-semibold">
-        We believe in supporting parents, not emptying wallets. Enjoy BabyEase
-        without spending a single penny!
+        We believe in supporting parents, not emptying wallets. Enjoy Easy Baby
+        Tracker by BabyEase without spending a single penny.
+      </p>
+      <p className="mt-4 text-center text-sm text-muted-foreground">
+        No ads. No subscriptions. Privacy-first by design.
       </p>
     </div>
   );

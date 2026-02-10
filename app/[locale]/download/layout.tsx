@@ -1,15 +1,15 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Download BabyEase - Free Baby Tracking App for iOS & Android',
+  title: 'Download Easy Baby Tracker by BabyEase - Free Baby Tracking App for iOS & Android',
   description:
-    'Download BabyEase for free. The lightweight baby tracking app to log feeds, sleep, diapers, and more. Available on iOS App Store and Google Play. Open-source and privacy-focused.',
+    'Download Easy Baby Tracker by BabyEase for free. Log feeds, sleep, and diapers with one tap. No ads, no subscriptions. Privacy-first on iOS and Android.',
   keywords:
-    'download BabyEase, baby tracker app, free baby app, feeding tracker, sleep tracker, diaper log, iOS, Android, parenting app',
+    'download Easy Baby Tracker, BabyEase, baby tracker app, free baby app, feeding tracker, sleep tracker, diaper log, iOS, Android, parenting app',
   openGraph: {
-    title: 'Download BabyEase - Free Baby Tracking App',
+    title: 'Download Easy Baby Tracker by BabyEase - Free Baby Tracking App',
     description:
-      'Download BabyEase for free. Track your baby\'s feeds, sleep, and diapers. Available on iOS and Android.',
+      'Download Easy Baby Tracker by BabyEase for free. Track feeds, sleep, and diapers with one tap.',
     type: 'website',
     url: 'https://easybabytracker.com/download',
     images: [
@@ -17,16 +17,16 @@ export const metadata: Metadata = {
         url: 'https://easybabytracker.com/logo-300.png',
         width: 300,
         height: 300,
-        alt: 'BabyEase Logo',
+        alt: 'Easy Baby Tracker by BabyEase logo',
       },
     ],
-    siteName: 'BabyEase',
+    siteName: 'Easy Baby Tracker by BabyEase',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Download BabyEase - Free Baby Tracking App',
+    title: 'Download Easy Baby Tracker by BabyEase - Free Baby Tracking App',
     description:
-      'Download BabyEase for free. Available on iOS and Android. The lightweight baby tracking app for busy parents.',
+      'Download Easy Baby Tracker by BabyEase for free. One-tap tracking for busy parents.',
     images: ['https://easybabytracker.com/logo-300.png'],
     creator: '@buddy_beep_com',
   },

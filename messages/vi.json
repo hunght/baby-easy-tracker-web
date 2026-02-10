@@ -1,11 +1,12 @@
 {
     "Index": {
-        "title": "BabyEase: Ứng dụng theo dõi bé miễn phí trên iOS & Android",
-        "description": "BabyEase: Ứng dụng theo dõi bé mã nguồn mở miễn phí. Ghi lại dữ liệu ăn, ngủ, tã và nhiều hơn nữa. Theo dõi các hoạt động hàng ngày của bé với ứng dụng di động tập trung vào quyền riêng tư trên iOS và Android.",
+        "title": "Easy Baby Tracker by BabyEase: Ứng dụng theo dõi bé miễn phí trên iOS & Android",
+        "description": "Easy Baby Tracker by BabyEase: Ghi lại ăn, ngủ, tã chỉ với một chạm. Không quảng cáo, không phí đăng ký. Ưu tiên quyền riêng tư trên iOS và Android.",
         "hero": {
+            "brand": "Easy Baby Tracker by BabyEase",
             "titlePart1": "Theo dõi hành trình",
             "titlePart2": "Hàng ngày của bé",
-            "subtitle": "Ứng dụng theo dõi bé đơn giản, miễn phí. Ghi lại dữ liệu ăn, ngủ và tã chỉ với một chạm. Không quảng cáo, không phí đăng ký.",
+            "subtitle": "Ghi lại ăn, ngủ, tã chỉ với một chạm. Không quảng cáo, không phí đăng ký. Ưu tiên quyền riêng tư.",
             "rating": "4.9 đánh giá • Miễn phí trên iOS & Android"
         },
         "features": {
@@ -44,13 +45,20 @@
             "quote": "Cuối cùng cũng có một ứng dụng cho bé không làm tôi thấy ngợp. Đơn giản, nhanh và thực sự hữu ích!",
             "author": "Một phụ huynh hạnh phúc"
         },
+        "community": {
+            "title": "Mẹo cho ba mẹ, ngắn gọn và an tâm",
+            "subtitle": "Hướng dẫn ngắn, bình tĩnh về ăn, ngủ và tã - tập trung vào kết quả, không làm bạn căng thẳng.",
+            "ctaBlog": "Đọc blog",
+            "ctaX": "Theo dõi trên X",
+            "note": "Instagram, TikTok và YouTube Shorts sắp ra mắt."
+        },
         "cta": {
             "title": "Sẵn sàng để việc chăm sóc bé dễ dàng hơn?",
-            "subtitle": "Tham gia cùng hàng ngàn ba mẹ đang theo dõi bé một cách dễ dàng.",
+            "subtitle": "Tham gia cùng ba mẹ đang theo dõi bé một cách dễ dàng.",
             "features": {
-                "free": "Miễn phí mãi mãi",
+                "free": "Không phí đăng ký",
                 "noAds": "Không quảng cáo",
-                "privacy": "Bảo mật riêng tư"
+                "privacy": "Ưu tiên quyền riêng tư"
             }
         }
     },
@@ -59,6 +67,7 @@
         "blog": "Blog",
         "feedback": "Góp ý",
         "twitter": "X / Twitter",
+        "openSource": "Mã nguồn mở",
         "easySchedule": "Lịch trình E.A.S.Y",
         "vaccination": "Lịch tiêm chủng",
         "grabItNow": "Tải ngay"
@@ -130,8 +139,8 @@
         }
     },
     "Download": {
-        "title": "Tải BabyEase",
-        "subtitle": "Ứng dụng theo dõi bé nhẹ nhàng cho ba mẹ bận rộn",
+        "title": "Tải Easy Baby Tracker",
+        "subtitle": "Ứng dụng theo dõi bé một chạm của BabyEase cho ba mẹ bận rộn",
         "appStore": "App Store",
         "playStore": "Google Play",
         "downloadOn": "Tải về trên",

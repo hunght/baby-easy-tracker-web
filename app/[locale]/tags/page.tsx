@@ -4,21 +4,21 @@ import { getAllPosts } from '@/lib/blog';
 import { Tag } from '@/components/tag';
 
 export const metadata: Metadata = {
-  title: 'Tags - BabyEase',
+  title: 'Tags - Easy Baby Tracker by BabyEase',
   description:
-    'Explore all topic tags for BabyEase blog posts. Find articles on parenting, baby care, and more.',
+    'Explore all topic tags for Easy Baby Tracker by BabyEase blog posts. Find articles on parenting, baby care, and more.',
   openGraph: {
-    title: 'Tags - BabyEase',
+    title: 'Tags - Easy Baby Tracker by BabyEase',
     description:
-      'Explore all topic tags for BabyEase blog posts. Find articles on parenting, baby care, and more.',
+      'Explore all topic tags for Easy Baby Tracker by BabyEase blog posts. Find articles on parenting, baby care, and more.',
     type: 'website',
     url: 'https://easybabytracker.com/tags',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tags - BabyEase',
+    title: 'Tags - Easy Baby Tracker by BabyEase',
     description:
-      'Explore all topic tags for BabyEase blog posts. Find articles on parenting, baby care, and more.',
+      'Explore all topic tags for Easy Baby Tracker by BabyEase blog posts. Find articles on parenting, baby care, and more.',
   },
 };
 
@@ -33,7 +33,8 @@ export default async function TagsPage() {
         <div className="flex-1 space-y-4">
           <h1 className="inline-block text-4xl font-black lg:text-5xl">Tags</h1>
           <p className="text-xl text-muted-foreground">
-            Browse all topics and categories covered in BabyEase blog posts.
+            Browse all topics and categories covered in Easy Baby Tracker by
+            BabyEase blog posts.
           </p>
         </div>
       </div>
@@ -51,9 +52,9 @@ export default async function TagsPage() {
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'Tags - BabyEase',
+          name: 'Tags - Easy Baby Tracker by BabyEase',
           description:
-            'Explore all topic tags for BabyEase blog posts. Find articles on parenting, baby care, and more.',
+            'Explore all topic tags for Easy Baby Tracker by BabyEase blog posts. Find articles on parenting, baby care, and more.',
           url: 'https://easybabytracker.com/tags',
           mainEntity: {
             '@type': 'ItemList',

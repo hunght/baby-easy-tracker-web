@@ -19,17 +19,17 @@ export async function generateMetadata({
   const { tag } = await params;
   const title = tag.split('-').join(' ');
   return {
-    title: `${title} - BabyEase`,
+    title: `${title} - Easy Baby Tracker by BabyEase`,
     description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
     openGraph: {
-      title: `${title} - BabyEase`,
+      title: `${title} - Easy Baby Tracker by BabyEase`,
       description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
       type: 'website',
       url: `https://easybabytracker.com/tags/${tag}`,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${title} - BabyEase`,
+      title: `${title} - Easy Baby Tracker by BabyEase`,
       description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
     },
   };
@@ -113,7 +113,7 @@ export default async function TagPage({ params }: TagPageProps) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
-            name: `${title} - BabyEase`,
+            name: `${title} - Easy Baby Tracker by BabyEase`,
             description: `Explore posts on the topic of ${title}. Find articles, tutorials, and insights related to ${title}.`,
             url: `https://easybabytracker.com/${locale}/tags/${tag}`,
             mainEntity: {

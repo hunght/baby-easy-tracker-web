@@ -7,19 +7,19 @@ import { getAllTags, sortTagsByCount } from '@/lib/utils';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'BabyEase Blog - Parenting Tips and Baby Care Insights',
+  title: 'Easy Baby Tracker by BabyEase Blog - Parenting Tips and Baby Care Insights',
   description:
-    'Stay updated with the latest parenting tips, baby care advice, and insights on the BabyEase blog.',
+    'Stay updated with the latest parenting tips, baby care advice, and insights on the Easy Baby Tracker by BabyEase blog.',
   openGraph: {
-    title: 'BabyEase Blog - Parenting Tips and Baby Care Insights',
+    title: 'Easy Baby Tracker by BabyEase Blog - Parenting Tips and Baby Care Insights',
     description:
-      'Stay updated with the latest parenting tips, baby care advice, and insights on the BabyEase blog.',
+      'Stay updated with the latest parenting tips, baby care advice, and insights on the Easy Baby Tracker by BabyEase blog.',
     url: 'https://easybabytracker.com/blog',
   },
   twitter: {
-    title: 'BabyEase Blog - Parenting Tips and Baby Care Insights',
+    title: 'Easy Baby Tracker by BabyEase Blog - Parenting Tips and Baby Care Insights',
     description:
-      'Stay updated with the latest parenting tips, baby care advice, and insights on the BabyEase blog.',
+      'Stay updated with the latest parenting tips, baby care advice, and insights on the Easy Baby Tracker by BabyEase blog.',
   },
 };
 
@@ -55,9 +55,9 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
         <div className="flex-1 space-y-4">
           <h1 className="inline-block text-4xl font-black lg:text-5xl">Blog</h1>
           <p className="text-xl text-muted-foreground">
-            Welcome to BabyEase, your trusted companion for tracking your
-            baby&apos;s daily journey. Discover parenting tips, baby care
-            insights, and more.
+            Welcome to Easy Baby Tracker by BabyEase, your trusted companion
+            for tracking your baby&apos;s daily journey. Discover parenting
+            tips, baby care insights, and more.
           </p>
         </div>
       </div>

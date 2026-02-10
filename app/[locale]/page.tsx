@@ -19,38 +19,38 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     keywords:
-      'baby tracker, baby tracking app, feeding tracker, sleep tracker, diaper log, open-source, mobile app, parenting, newborn care, baby care app',
+      'Easy Baby Tracker, BabyEase, baby tracker, baby tracking app, feeding tracker, sleep tracker, diaper log, mobile app, parenting, newborn care, baby care app',
     openGraph: {
-      title: 'BabyEase - Free Baby Tracking App',
+      title: t('title'),
       description: t('description'),
       type: 'website',
-      url: 'https://babyease.app',
+      url: siteConfig.url,
       images: [
         {
-          url: 'https://babyease.app/logo-300.png',
+          url: `${siteConfig.url}/logo-300.png`,
           width: 300,
           height: 300,
-          alt: 'BabyEase Logo',
+          alt: `${siteConfig.productName} by ${siteConfig.brandName} logo`,
         },
       ],
-      siteName: 'BabyEase',
+      siteName: siteConfig.name,
       locale: locale === 'vi' ? 'vi_VN' : 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'BabyEase - Free Baby Tracking App',
+      title: t('title'),
       description: t('description'),
       images: [
         {
-          url: 'https://babyease.app/logo-300.png',
-          alt: 'BabyEase Logo',
+          url: `${siteConfig.url}/logo-300.png`,
+          alt: `${siteConfig.productName} by ${siteConfig.brandName} logo`,
         },
       ],
       creator: '@hugboringdev',
       site: '@hugboringdev',
     },
     alternates: {
-      canonical: 'https://babyease.app',
+      canonical: siteConfig.url,
     },
     robots: {
       index: true,
@@ -104,8 +104,9 @@ export default async function Home({
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'BabyEase',
-    url: 'https://babyease.app',
+    name: siteConfig.productName,
+    alternateName: siteConfig.brandName,
+    url: siteConfig.url,
     description: t('description'),
     inLanguage: locale === 'vi' ? 'vi-VN' : 'en-US',
   };
@@ -113,7 +114,8 @@ export default async function Home({
   const appSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'BabyEase',
+    name: siteConfig.productName,
+    alternateName: siteConfig.brandName,
     applicationCategory: 'LifestyleApplication',
     operatingSystem: 'iOS, Android',
     offers: {
@@ -121,7 +123,7 @@ export default async function Home({
       price: '0',
       priceCurrency: 'USD',
     },
-    downloadUrl: 'https://babyease.app/download',
+    downloadUrl: `${siteConfig.url}/download`,
   };
 
   return (
@@ -146,6 +148,9 @@ export default async function Home({
               <div className="flex flex-col items-center gap-12 md:flex-row md:justify-between">
                 {/* Left - Text Content */}
                 <div className="flex flex-col items-center text-center md:w-1/2 md:items-start md:text-left">
+                  <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    {t('hero.brand')}
+                  </p>
                   <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
                     <span className="text-slate-800 dark:text-white">
                       {t('hero.titlePart1')}
@@ -202,7 +207,7 @@ export default async function Home({
                         <div className="overflow-hidden rounded-[2.5rem] border-8 border-slate-800 bg-slate-800 shadow-2xl dark:border-slate-700">
                           <Image
                             src="/screenshots/01-tracking.png"
-                            alt="BabyEase app showing activity tracking"
+                            alt="Easy Baby Tracker app showing activity tracking"
                             width={390}
                             height={844}
                             priority
@@ -254,7 +259,7 @@ export default async function Home({
               <div className="container mx-auto px-4">
                 <Image
                   src="/features-showcase-vi.png"
-                  alt="Các tính năng chính của BabyEase"
+                  alt="Các tính năng chính của Easy Baby Tracker"
                   width={1920}
                   height={1080}
                   className="w-full rounded-2xl"
@@ -291,7 +296,7 @@ export default async function Home({
                   >
                     <Image
                       src={src}
-                      alt={`BabyEase app screenshot ${index + 1}`}
+                      alt={`Easy Baby Tracker app screenshot ${index + 1}`}
                       width={200}
                       height={433}
                       className="w-40 md:w-48"
@@ -317,6 +322,39 @@ export default async function Home({
                   &quot;{t('testimonial.quote')}&quot;
                 </blockquote>
                 <p className="text-white/80">— {t('testimonial.author')}</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Parent-Facing Community */}
+          <section className="py-16 bg-white dark:bg-slate-800/50">
+            <div className="container mx-auto px-4 text-center">
+              <div className="mx-auto max-w-2xl">
+                <h2 className="mb-3 text-3xl font-bold text-slate-800 dark:text-white">
+                  {t('community.title')}
+                </h2>
+                <p className="mb-6 text-slate-600 dark:text-slate-300">
+                  {t('community.subtitle')}
+                </p>
+                <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                  <Link
+                    href={`/${locale}/blog`}
+                    className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
+                  >
+                    {t('community.ctaBlog')}
+                  </Link>
+                  <a
+                    href={siteConfig.links.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-slate-300 px-5 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900 dark:border-slate-600 dark:text-slate-200 dark:hover:border-slate-400"
+                  >
+                    {t('community.ctaX')}
+                  </a>
+                </div>
+                <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
+                  {t('community.note')}
+                </p>
               </div>
             </div>
           </section>

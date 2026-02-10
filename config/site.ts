@@ -1,8 +1,10 @@
 export const siteConfig = {
-  name: 'BabyEase',
+  name: 'Easy Baby Tracker by BabyEase',
+  productName: 'Easy Baby Tracker',
+  brandName: 'BabyEase',
   url: 'https://easybabytracker.com',
   description:
-    'Lightweight baby tracking app to log events, view timelines, and explore charts for your little one',
+    'Log feeds, sleep, and diapers with one tap. No ads, no subscriptions. Privacy-first baby tracking for iOS and Android.',
   author: 'Hung Hoang',
   links: {
     twitter: 'https://x.com/hugboringdev',

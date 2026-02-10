@@ -13,7 +13,7 @@ export function MainNav() {
     <nav className="flex items-center space-x-4 lg:space-x-6">
       <Link href="/" className="mr-6 flex items-center space-x-2">
         <Image src="/logo-300.png" alt="Logo" width={48} height={48} />
-        <span className="font-bold">{siteConfig.name}</span>
+        <span className="font-bold">{siteConfig.productName}</span>
       </Link>
       <Link
         href="/blog"

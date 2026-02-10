@@ -6,11 +6,13 @@ import { FaApple, FaGooglePlay } from 'react-icons/fa';
 import Link from 'next/link';
 import { appLinks } from '@/config/app-links';
 import { useTranslations, useLocale } from 'next-intl';
+import { siteConfig } from '@/config/site';
 
 const appSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'BabyEase',
+  name: siteConfig.productName,
+  alternateName: siteConfig.brandName,
   applicationCategory: 'LifestyleApplication',
   operatingSystem: 'iOS, Android',
   offers: {
@@ -20,7 +22,7 @@ const appSchema = {
   },
   downloadUrl: 'https://easybabytracker.com/download',
   description:
-    'The lightweight baby tracking app to log feeds, sleep, diapers, and more.',
+    'Log feeds, sleep, and diapers with one tap. No ads, no subscriptions. Privacy-first.',
   image: 'https://easybabytracker.com/logo-300.png',
   author: {
     '@type': 'Person',
@@ -51,7 +53,7 @@ const DownloadPage = () => {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo-256.png"
-              alt="BabyEase Logo"
+              alt={`${siteConfig.productName} by ${siteConfig.brandName} logo`}
               width={120}
               height={120}
               className="mx-auto mb-6 h-24 w-24"

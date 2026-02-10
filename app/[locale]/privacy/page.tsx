@@ -1,15 +1,15 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Easy Baby Tracker',
-  description: 'Privacy policy for Easy Baby Tracker mobile app',
+  title: 'Privacy Policy | Easy Baby Tracker by BabyEase',
+  description: 'Privacy policy for Easy Baby Tracker by BabyEase mobile app',
 };
 
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-4xl p-6 md:p-8">
       <h1 className="mb-4 text-center text-3xl font-bold md:text-4xl">
-        Privacy Policy for Easy Baby Tracker
+        Privacy Policy for Easy Baby Tracker by BabyEase
       </h1>
       <p className="mb-8 text-center text-sm text-muted-foreground">
         Last updated: November 29, 2025
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       <div className="space-y-8">
         <section>
           <p className="text-base">
-            Easy Baby Tracker (&quot;we&quot;, &quot;our&quot;, or
+            Easy Baby Tracker by BabyEase (&quot;we&quot;, &quot;our&quot;, or
             &quot;us&quot;) operates the Easy Baby Tracker mobile application
             (the &quot;Service&quot;). This Privacy Policy informs you about our
             policies regarding the collection, use, and disclosure of personal
@@ -31,10 +31,10 @@ export default function PrivacyPage() {
             Information Collection and Use
           </h2>
           <p className="mb-4">
-            Easy Baby Tracker is designed with your privacy in mind. All data
-            collected by the app is stored locally on your device. We do not
-            collect, transmit, or store any personal information on external
-            servers.
+            Easy Baby Tracker by BabyEase is designed with your privacy in
+            mind. All data collected by the app is stored locally on your
+            device. We do not collect, transmit, or store any personal
+            information on external servers.
           </p>
           <h3 className="mb-3 text-xl font-semibold">Data Stored Locally</h3>
           <p className="mb-2">
@@ -100,9 +100,9 @@ export default function PrivacyPage() {
         <section>
           <h2 className="mb-4 text-2xl font-semibold">Third-Party Services</h2>
           <p>
-            Easy Baby Tracker does not use any third-party analytics,
-            advertising, or tracking services. The app functions entirely
-            offline and does not require an internet connection.
+            Easy Baby Tracker by BabyEase does not use any third-party
+            analytics, advertising, or tracking services. The app functions
+            entirely offline and does not require an internet connection.
           </p>
         </section>
 

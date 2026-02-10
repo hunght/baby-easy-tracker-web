@@ -13,13 +13,18 @@ export function SiteFooter() {
           <div className="flex items-center gap-2">
             <Image
               src="/logo.svg"
-              alt="BabyEase"
+              alt={`${siteConfig.productName} by ${siteConfig.brandName}`}
               width={32}
               height={32}
               className="h-8 w-8"
             />
-            <span className="font-semibold text-slate-800 dark:text-white">
-              BabyEase
+            <span className="flex flex-col leading-tight">
+              <span className="font-semibold text-slate-800 dark:text-white">
+                {siteConfig.productName}
+              </span>
+              <span className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                by {siteConfig.brandName}
+              </span>
             </span>
           </div>
 
@@ -41,10 +46,18 @@ export function SiteFooter() {
             >
               {t('twitter')}
             </a>
+            <a
+              href={siteConfig.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-slate-800 dark:hover:text-white"
+            >
+              {t('openSource')}
+            </a>
           </div>
 
           <p className="text-sm text-slate-400">
-            © {new Date().getFullYear()} BabyEase
+            © {new Date().getFullYear()} {siteConfig.brandName}
           </p>
         </div>
       </div>

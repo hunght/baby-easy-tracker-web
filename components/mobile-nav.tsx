@@ -60,7 +60,7 @@ export function MobileNav() {
               onClick={() => setOpen(false)}
             >
               <Icons.logo className="h-6 w-6" />
-              <span className="text-lg font-bold">{siteConfig.name}</span>
+              <span className="text-lg font-bold">{siteConfig.productName}</span>
             </Link>
           </div>
 

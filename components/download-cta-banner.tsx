@@ -13,14 +13,14 @@ export function DownloadCtaBanner({ locale }: DownloadCtaBannerProps) {
     en: {
       title: 'Get the Full Experience',
       description:
-        'This is a web demo. Download BabyEase app for offline access, notifications, and all premium features - completely free!',
+        'This is a web demo. Download Easy Baby Tracker by BabyEase for offline access, notifications, and all premium features - completely free!',
       appStore: 'App Store',
       playStore: 'Google Play',
     },
     vi: {
       title: 'Trải nghiệm đầy đủ',
       description:
-        'Đây là bản demo trên web. Tải ứng dụng BabyEase để sử dụng offline, nhận thông báo và tất cả tính năng cao cấp - hoàn toàn miễn phí!',
+        'Đây là bản demo trên web. Tải Easy Baby Tracker by BabyEase để sử dụng offline, nhận thông báo và tất cả tính năng cao cấp - hoàn toàn miễn phí!',
       appStore: 'App Store',
       playStore: 'Google Play',
     },
