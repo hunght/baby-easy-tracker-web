@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ffprobe:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(node -e:*)",
+      "Bash(ls:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(pnpm build:*)",
+      "Bash(git push:*)",
+      "Bash(grep:*)",
+      "Bash(for:*)",
+      "Bash(do echo \"=== $file ===\" grep -n '<' \"$file\")",
+      "Bash(done)",
+      "Bash(vercel logs:*)",
+      "Bash(vercel list:*)",
+      "Bash(curl:*)",
+      "Bash(vercel --prod --yes:*)",
+      "Bash(vercel inspect:*)",
+      "Bash(echo:*)",
+      "Bash(~/.zshrc)"
+    ]
+  }
+}

@@ -35,3 +35,4 @@ next-env.d.ts
 # velite files
 .velite
 .env.local
+function_spec_*.json
